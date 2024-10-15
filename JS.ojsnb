@@ -1,0 +1,34 @@
+{
+    "id": "ed0ad39d-459b-41ba-887e-f10d10ad75d3",
+    "files": [],
+    "nodes": [
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "str = \"hello\"\r\narr = str.split('');\r\n",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "numbers = ['1', '2', '3', '4'];\r\nsquares = numbers.map(x => x * x);  // Output: [1, 4, 9, 16]\r\ntypeof squares",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "// Example usage\r\ntimestamp = \"01:10:10\"; // 1 hour, 10 minutes, 10 seconds\r\n// { hours, minutes, seconds } = calculateTimeComponents(timestamp);\r\n// console.log(`Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`); \r\n// Output: Hours: 1, Minutes: 10, Seconds: 10\r\n\r\nhours = timestamp.split(':').map(Number);\r\nhours\r\n\r\n",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "str = (1).toString(2)",
+            "mode": "js",
+            "outputs": []
+        }
+    ]
+}
