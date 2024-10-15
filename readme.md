@@ -802,3 +802,4 @@ let str = (1).toString(2)
 console.log(str) // 00001
 ```
 
+`End Of File`
