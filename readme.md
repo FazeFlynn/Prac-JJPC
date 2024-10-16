@@ -501,8 +501,22 @@ A comprehensive overview of the functions provided by the `Collectors` class in 
     * Collects the elements into a `Map` using specified key and value mappings.
     * Example:
     ```java
-    Map<Integer, String> map = stream.collect(Collectors.toMap(String::length, Function.identity()));
+    import java.util.Arrays;
+    import java.util.List;
+    import java.util.Map;
+    import java.util.function.Function;
+    import java.util.stream.Collectors;
+
+    List<String> names = Arrays.asList("Alice", "Bob", "Charliesa", "id", "Even");
+    // Map<Integer, String> map = names.stream().collect(Collectors.toMap(String::length, Function.identity())); // this will only work when value are not duplicate, keys should be unique
+    Map<Integer, String> map = names.stream().collect(Collectors.toMap(String::length, Function.identity(),      // Value: the string itself
+    (existing, replacement) -> existing)); // Keep the existing value if there is a duplicate
     ```
+    Output
+    ```
+    {2=id, 3=Bob, 4=Even, 5=Alice, 9=Charliesa}
+    ```
+
 
 ## 2. **Joining Collectors**
 
