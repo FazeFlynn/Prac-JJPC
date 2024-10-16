@@ -592,7 +592,7 @@ System.out.println(sum); // Output: 10
 
 ---
 
-## Using Stream
+# Using Stream
 A Stream is a sequence of elements that can be processed in a functional style. Streams allow you to perform operations on collections of data (like lists, sets, or arrays) in a declarative way, focusing on what to do rather than how to do it. They were introduced in Java 8 as part of the `java.util.stream` package.
 
 ```java
@@ -608,55 +608,6 @@ public class Main {
     }
 }
 ```
-
-
-# Creating a Stream
-You can create a stream from various data sources, including collections, arrays, and I/O channels. For instance, using `Arrays.stream()` is a common way to create a stream from an array.
-
-## Example of Arrays.stream()
-Here's how you can use `Arrays.stream()` to create a stream from an array and perform operations on it:
-
-```java
-import java.util.Arrays;
-
-public class Main {
-    public static void main(String[] args) {
-        int[] numbers = {1, 2, 3, 4, 5};
-
-        // Create a stream from the array and compute the sum of squares
-        int sumOfSquares = Arrays.stream(numbers) // Create a stream from the array
-                                 .map(x -> x * x) // Square each number
-                                 .sum(); // Sum the squared values
-
-        System.out.println(sumOfSquares); // Output: 55
-    }
-}
-```
-
-### Explanation of the Example
-- **Creating a Stream**: `Arrays.stream(numbers)` creates a stream of integers from the `numbers` array.
-- **Mapping**: The `map(x -> x * x)` operation transforms each element in the stream by squaring it.
-- **Summing**: The `sum()` method computes the total of the squared values.
-
-## Common Stream Operations
-### Intermediate Operations:
-- `filter()`: Filters elements based on a predicate.
-- `map()`: Transforms elements into another form.
-- `distinct()`: Removes duplicate elements.
-- `sorted()`: Sorts the elements.
-
-### Terminal Operations:
-- `collect()`: Collects the elements into a collection (like a List).
-- `forEach()`: Performs an action for each element.
-- `reduce()`: Reduces the elements to a single value.when you need to represent the absence of a value (null) or when working with collections (like `List<Integer>`) that cannot hold primitive types.
-
-
-## Key Characteristics of Streams
-- **Not a Data Structure**: A stream does not store data; it represents a view of data that can be processed.
-- **Pipelines**: Streams can be composed into a pipeline of operations. You can chain operations such as `filter()`, `map()`, `reduce()`, and more.
-- **Laziness**: Stream operations are lazy. Intermediate operations are not executed until a terminal operation is invoked.
-- **Parallel Processing**: Streams can be processed in parallel using the `parallelStream()` method.
-- **Functional Style**: Streams promote a functional programming style, allowing you to pass behavior (like functions) as parameters.
 
 ## Creating a Stream
 You can create a stream from various data sources, including collections, arrays, and I/O channels. For instance, using `Arrays.stream()` is a common way to create a stream from an array.
@@ -781,21 +732,36 @@ A comprehensive overview of the functions provided by the `Collectors` class in 
     * Concatenates the elements of the stream into a single `String`.
     * Example:
     ```java
-    String result = stream.collect(Collectors.joining(", "));
+    import java.util.Arrays;  
+    import java.util.List;  
+    import java.util.stream.Collectors;
+    
+    List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "Alice");        
+    String result = names.stream().collect(Collectors.joining("-"));
+    ```
+
+    `Output`
+    ```
+    Alice-Bob-Charlie-Alice
     ```
 
 * **`joining(CharSequence delimiter)`**:
     * Concatenates the elements with a specified delimiter.
     * Example:
     ```java
-    String result = stream.collect(Collectors.joining(", "));
+    import java.util.Arrays;  
+    import java.util.List;  
+    import java.util.stream.Collectors;
+
+    List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "Alice");        
+    String result = names.stream().collect(Collectors.joining("-"));
     ```
 
 * **`joining(CharSequence delimiter, CharSequence prefix, CharSequence suffix)`**:
     * Concatenates with a delimiter, prefix, and suffix.
     * Example:
     ```java
-    String result = stream.collect(Collectors.joining(", ", "[", "]"));
+    String result = stream().collect(Collectors.joining(", ", "[", "]"));
     ```
 
 ## 3. **Summarization Collectors**
@@ -804,28 +770,59 @@ A comprehensive overview of the functions provided by the `Collectors` class in 
     * Counts the number of elements in the stream.
     * Example:
     ```java
-    long count = stream.collect(Collectors.counting());
+    List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "Alice");        
+    long count = names.stream().collect(Collectors.counting());
+    // Output - 4 
+    ```
+
+
+
+    `and`
+    ```java
+    List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "Alice", "David", "Bob", "Alice");
+    // Count the number of occurrences of each name using the counting() collector
+    Map<String, Long> nameCount = names.stream().collect(Collectors.groupingBy(name -> name, Collectors.counting()));
+    // Print the count of each name
+    nameCount.forEach((name, count) -> System.out.println("Name: " + name + ", Count: " + count));
+    ```
+    Output
+
+    ```
+    Name: Bob, Count: 2
+    Name: Alice, Count: 3
+    Name: Charlie, Count: 1
+    Name: David, Count: 1
     ```
 
 * **`summarizingInt()`**:
     * Collects statistics, such as count, sum, min, average, and max, for an `int` field.
     * Example:
     ```java
-    IntSummaryStatistics stats = stream.collect(Collectors.summarizingInt(String::length));
+    List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "Alice");        
+    IntSummaryStatistics stats = names.stream().collect(Collectors.summarizingInt(String::length));
+    //Output - IntSummaryStatistics{count=4, sum=20, min=3, average=5.000000, max=7}
+    ```
+    `and`
+    ```java
+    Integer[] num = {1,2,3,4,5};
+    List<Integer> nums = Arrays.asList(num);
+    IntSummaryStatistics stats = nums.stream().collect(Collectors.summarizingInt(Integer::intValue));
     ```
 
 * **`summarizingDouble()`**:
     * Similar to `summarizingInt()`, but for `double` fields.
     * Example:
     ```java
-    DoubleSummaryStatistics stats = stream.collect(Collectors.summarizingDouble(Double::parseDouble));
+    Double[] num = {1.23,2.32,3.34,4.23,5.56};
+    List<Double> nums = Arrays.asList(num);
+    DoubleSummaryStatistics stats = nums.stream().collect(Collectors.summarizingDouble(Double::doubleValue));
     ```
 
 * **`summarizingLong()`**:
     * Similar to `summarizingInt()`, but for `long` fields.
     * Example:
     ```java
-    LongSummaryStatistics stats = stream.collect(Collectors.summarizingLong(Long::parseLong));
+    LongSummaryStatistics stats = stream().collect(Collectors.summarizingLong(Long::parseLong));
     ```
 
 ## 4. **Aggregation Collectors**
@@ -834,14 +831,24 @@ A comprehensive overview of the functions provided by the `Collectors` class in 
     * Performs a reduction on the elements of the stream using an associative accumulation function.
     * Example:
     ```java
-    Optional<String> concatenated = stream.collect(Collectors.reducing((s1, s2) -> s1 + s2));
+    List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "Alice");
+    Optional<String> concatenated = names.stream().collect(Collectors.reducing((s1, s2) -> s1 + s2));
+    concatenated.ifPresent(result -> System.out.println("Concatenated String: " + result));
+    // Output - Concatenated String: AliceBobCharlieAlice
     ```
+    `for int`
+    ```java
+    List<Integer> nums = Arrays.asList(1,2,3,4,5);
+    Optional<Integer> concatenated = nums.stream().collect(Collectors.reducing((s1, s2) -> s1  + s2));
+    concatenated.ifPresent(result -> System.out.println("Concatenated String: " + result));
+    ```
+
 
 * **`reducing(T identity, BinaryOperator)`**:
     * Performs a reduction with an identity value and an associative function.
     * Example:
     ```java
-    String result = stream.collect(Collectors.reducing("", String::concat));
+    String result = names.stream().collect(Collectors.reducing("", String::concat));
     ```
 
 ## 5. **Partitioning Collectors**
@@ -850,7 +857,7 @@ A comprehensive overview of the functions provided by the `Collectors` class in 
     * Partitions the elements of the stream into two groups based on a predicate.
     * Example:
     ```java
-    Map<Boolean, List<String>> partitioned = stream.collect(Collectors.partitioningBy(s -> s.length() > 3));
+    Map<Boolean, List<String>> partitioned = stream().collect(Collectors.partitioningBy(s -> s.length() > 3));
     ```
 
 ## 6. **Grouping Collectors**
@@ -859,15 +866,33 @@ A comprehensive overview of the functions provided by the `Collectors` class in 
     * Groups the elements of the stream by a classifier function.
     * Example:
     ```java
-    Map<Integer, List<String>> grouped = stream.collect(Collectors.groupingBy(String::length));
+    Map<Integer, List<String>> grouped = stream().collect(Collectors.groupingBy(String::length));
     ```
 
 * **`groupingBy(Function, Collector)`**:
     * Groups by a classifier function and applies a downstream collector.
     * Example:
     ```java
-    Map<Integer, Long> groupedCount = stream.collect(Collectors.groupingBy(String::length, Collectors.counting()));
+    import java.util.Arrays;
+    import java.util.List;
+    import java.util.Map;
+    import java.util.stream.Collectors;
+
+    List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eve");
+    // Grouping by the length of the string and counting occurrences
+    Map<Integer, Long> groupedCount = names.stream()
+            .collect(Collectors.groupingBy(String::length, Collectors.counting()));
+    groupedCount.forEach((length, count) -> 
+    System.out.println("Length: " + length + ", Count: " + count));
     ```
+    Output
+    ```
+    Length: 3, Count: 2
+    Length: 5, Count: 2
+    Length: 7, Count: 1
+    ```
+    
+
 
 ## 7. **Mapping Collectors**
 
@@ -875,7 +900,8 @@ A comprehensive overview of the functions provided by the `Collectors` class in 
     * Maps the elements before accumulating them.
     * Example:
     ```java
-    List<Integer> lengths = stream.collect(Collectors.mapping(String::length, Collectors.toList()));
+    List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eve");
+    List<Integer> lengths = names.stream().collect(Collectors.mapping(String::length, Collectors.toList()));
     ```
 
 ## 8. **Custom Collectors**
@@ -1049,6 +1075,21 @@ Here's a comprehensive list of string functions and operations in Java, includin
 
 ## Summary
 This list covers the essential functions and operations you can perform on strings in Java. Strings are immutable in Java, meaning that any modifications create a new string instance, which is important to keep in mind when working with them.
+
+## `Type Casting and Conversion in java`
+
+```java
+String fname = "Faze";
+String lname = "FLynn";
+int age = 21;
+double gpa = 1.2;
+String full_name = fname + " " + lname + " " + Integer.toString(age) + " " + Double.toString(gpa) + " " + String.valueOf(age) +" " + age;
+full_name;
+```
+```
+Faze FLynn 21 1.2 21 21
+```
+
 
 
 ---
