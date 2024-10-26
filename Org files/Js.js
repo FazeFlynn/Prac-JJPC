@@ -13,9 +13,9 @@ function calculateTimeComponents(timestamp) {
 }
 
 // Example usage
-const timestamp = "01:10:10"; // 1 hour, 10 minutes, 10 seconds
-const { hours, minutes, seconds } = calculateTimeComponents(timestamp);
-console.log(`Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`); 
+// const timestamp = "01:10:10"; // 1 hour, 10 minutes, 10 seconds
+// const { hours, minutes, seconds } = calculateTimeComponents(timestamp);
+// console.log(`Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`); 
 // Output: Hours: 1, Minutes: 10, Seconds: 10
 
 
@@ -30,6 +30,26 @@ console.log(d);
 console.log(e);
 console.log(f);
 console.log(g);
+
+
+
+// Example usage
+timestamp = "02:10:40"; // 1 hour, 10 minutes, 10 seconds
+offset = 40;
+// { hours, minutes, seconds } = calculateTimeComponents(timestamp);
+// console.log(`Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`); 
+// Output: Hours: 1, Minutes: 10, Seconds: 10
+
+hours = timestamp.split(':').map(Number);
+
+hr = hours[0];
+mn = hours[1];
+ss = hours[2];
+
+totalSec = hr*3600 + mn*60 + ss;
+
+totalSec = totalSec + offset;
+
 
 
 

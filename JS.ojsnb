@@ -19,7 +19,7 @@
         {
             "id": "tmp-0",
             "name": "",
-            "value": "// Example usage\r\ntimestamp = \"01:10:10\"; // 1 hour, 10 minutes, 10 seconds\r\n// { hours, minutes, seconds } = calculateTimeComponents(timestamp);\r\n// console.log(`Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`); \r\n// Output: Hours: 1, Minutes: 10, Seconds: 10\r\n\r\nhours = timestamp.split(':').map(Number);\r\nhours\r\n\r\n",
+            "value": "// Example usage\r\ntimestamp = \"02:10:40\"; // 1 hour, 10 minutes, 10 seconds\r\noffset = 40;\r\n// { hours, minutes, seconds } = calculateTimeComponents(timestamp);\r\n// console.log(`Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`); \r\n// Output: Hours: 1, Minutes: 10, Seconds: 10\r\n\r\nhours = timestamp.split(':').map(Number);\r\n\r\nhr = hours[0];\r\nmn = hours[1];\r\nss = hours[2];\r\n\r\ntotalSec = hr*3600 + mn*60 + ss;\r\n\r\ntotalSec = totalSec + offset;\r\n\r\n\r\n\r\n\r\n\r\n",
             "mode": "js",
             "outputs": []
         },
@@ -27,6 +27,13 @@
             "id": "tmp-0",
             "name": "",
             "value": "str = (1).toString(2)",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "// Example usage\r\nlet timestamp = \"02:10:40\"; // 1 hour, 10 minutes, 10 seconds\r\nlet offset = 40;\r\n\r\n\r\nlet hours = timestamp.split(':').map(Number);\r\n\r\nlet hr = hours[0];\r\nlet mn = hours[1];\r\nlet ss = hours[2];\r\n\r\nlet totalSec = hr*3600 + mn*60 + ss;\r\n\r\ntotalSec = totalSec + offset;\r\n\r\ntotalSec\r\n\r\nhr = Math.floor(totalSec/3600);\r\nhr\r\ntotalSec %= 3600;\r\ntotalSec\r\n\r\nmn = Math.floor(totalSec/60);\r\nmn\r\ntotalSec %= 60;\r\ntotalSec\r\n\r\nss = totalSec;\r\nss\r\n\r\nlet newTime = hr + \":\" + mn + \":\" + ss;\r\nnewTime\r\n",
             "mode": "js",
             "outputs": []
         }
