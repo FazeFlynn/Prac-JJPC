@@ -899,15 +899,55 @@ print(f"Hours: {hours}")
 print(f"Minutes: {minutes}")
 print(f"Seconds: {seconds}")
 ```
-### `**In Javascript you can get the binary num of any num by:- **`
+
+
+### `Javascript` - `To find Binary of a number`
 ```javascript
-(number).toString(2)
-let str = (1).toString(2)
-                        .padStart(5,0)
-console.log(str) // 00001
+let num = 2;
+let str = (num).toString(2).padStart(5,0);
+console.log(str); // 00010
 ```
 
+### `Java` - `To Find Binary of a number`
+```java
+int num = 2;
+String binaryStr = Integer.toBinaryString(num);
+String formatted = String.format("%5s",binaryStr).replace(" ", "0");
+System.out.println(formatted); // Output: "00010"
+```
+
+### `Python` - `To Find Binary of a number`
+```python
+num = 2
+binary_str = bin(num)[2:]  #  Slices off the '0b' prefix, Original - "0b10"
+formatted = binary_str.zfill(5)
+print(binary_str)  # Output: "00010"
+```
+
+
+
 # ASCII Values
+
+#### `Java`
+```java
+char ch = ' ';
+int asciiValue = (int) ch;
+asciiValue; // 32
+```
+
+#### `Javascript`
+```javascript
+let ch = ' ';
+let asciiValue = ch.charCodeAt(0);
+console.log(asciiValue);  // Output: 32
+```
+
+#### `Python`
+```python
+ch = ' '
+ascii_value = ord(ch)
+print(ascii_value)  # Output: 32
+```
 
 | Character | ASCII Value |
 |-----------|-------------|

@@ -36,6 +36,34 @@
             "value": "// Example usage\r\nlet timestamp = \"02:10:40\"; // 1 hour, 10 minutes, 10 seconds\r\nlet offset = 40;\r\n\r\n\r\nlet hours = timestamp.split(':').map(Number);\r\n\r\nlet hr = hours[0];\r\nlet mn = hours[1];\r\nlet ss = hours[2];\r\n\r\nlet totalSec = hr*3600 + mn*60 + ss;\r\n\r\ntotalSec = totalSec + offset;\r\n\r\ntotalSec\r\n\r\nhr = Math.floor(totalSec/3600);\r\nhr\r\ntotalSec %= 3600;\r\ntotalSec\r\n\r\nmn = Math.floor(totalSec/60);\r\nmn\r\ntotalSec %= 60;\r\ntotalSec\r\n\r\nss = totalSec;\r\nss\r\n\r\nlet newTime = hr + \":\" + mn + \":\" + ss;\r\nnewTime\r\n",
             "mode": "js",
             "outputs": []
+        },
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "#### `ASCII Value`",
+            "mode": "md",
+            "outputs": []
+        },
+        {
+            "id": "tmp-1",
+            "name": "",
+            "value": "ch = \" \";\r\nascii = ch.charCodeAt(0);",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-2",
+            "name": "",
+            "value": "#### `Binary`",
+            "mode": "md",
+            "outputs": []
+        },
+        {
+            "id": "tmp-3",
+            "name": "",
+            "value": "str = (2).toString(2).padStart(5,0);   // 000010",
+            "mode": "js",
+            "outputs": []
         }
     ]
 }
