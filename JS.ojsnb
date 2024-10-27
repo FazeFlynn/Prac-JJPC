@@ -64,6 +64,13 @@
             "value": "str = (2).toString(2).padStart(5,0);   // 000010",
             "mode": "js",
             "outputs": []
+        },
+        {
+            "id": "tmp-4",
+            "name": "",
+            "value": "num = 2\r\nmystr = num.toString().padStart(5,'0')",
+            "mode": "js",
+            "outputs": []
         }
     ]
 }

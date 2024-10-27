@@ -925,9 +925,33 @@ formatted = binary_str.zfill(5)
 print(binary_str)  # Output: "00010"
 ```
 
+# Binary of the Characters
+### `Firsly find the ASCII value then convert the ASCII value into Binary:`
 
+#### `Java`
 
-# ASCII Values
+```java
+char character = 'A';
+int asciiValue = (int) character;
+String binaryString = Integer.toBinaryString(asciiValue);
+System.out.println(binaryString); // Output: 1000001
+```
+#### `Javascript`
+```javascript
+let character = 'A';
+let asciiValue = character.charCodeAt(0);
+let binaryString = asciiValue.toString(2);
+console.log(binaryString); // Output: 1000001
+```
+#### `Python`
+```python
+character = 'A'
+ascii_value = ord(character)
+binary_string = bin(ascii_value)[2:]  # Remove the '0b' prefix
+print(binary_string)  # Output: 1000001
+```
+
+# `ASCII Values`
 
 #### `Java`
 ```java
@@ -949,6 +973,8 @@ ch = ' '
 ascii_value = ord(ch)
 print(ascii_value)  # Output: 32
 ```
+
+# ASCII Values Table of Characters:
 
 | Character | ASCII Value |
 |-----------|-------------|
@@ -1084,4 +1110,4 @@ print(ascii_value)  # Output: 32
 
 
 
-`End Of File`
+# **`End Of File`**
