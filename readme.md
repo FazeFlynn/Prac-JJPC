@@ -900,15 +900,16 @@ print(f"Minutes: {minutes}")
 print(f"Seconds: {seconds}")
 ```
 
+# Binary Of Numbers:
 
-### `Javascript` - `To find Binary of a number`
+## `Javascript` - To find Binary of a number
 ```javascript
 let num = 2;
 let str = (num).toString(2).padStart(5,0);
 console.log(str); // 00010
 ```
 
-### `Java` - `To Find Binary of a number`
+## `Java` - To Find Binary of a number
 ```java
 int num = 2;
 String binaryStr = Integer.toBinaryString(num);
@@ -916,7 +917,7 @@ String formatted = String.format("%5s",binaryStr).replace(" ", "0");
 System.out.println(formatted); // Output: "00010"
 ```
 
-### `Python` - `To Find Binary of a number`
+## `Python` - To Find Binary of a number
 ```python
 num = 2
 binary_str = bin(num)[2:]  #  Slices off the '0b' prefix, Original - "0b10"
