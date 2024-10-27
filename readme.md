@@ -708,6 +708,103 @@ The `Collectors` class provides a rich set of functionalities to transform and g
 
 
 
+# Java Collection Declaration Examples
+
+## `Lists`
+
+### 1. Using `ArrayList`
+```java
+List<String> arrayList = new ArrayList<>();
+List<String> arrayListWithValues = new ArrayList<>(Arrays.asList("A", "B", "C"));
+```
+
+### 2. Using `LinkedList`
+```java
+List<String> linkedList = new LinkedList<>();
+List<String> linkedListWithValues = new LinkedList<>(Arrays.asList("A", "B", "C"));
+```
+
+### 3. Using `List.of` (Immutable List in Java 9+)
+```java
+List<String> immutableList = List.of("A", "B", "C");
+```
+
+### 4. Using `Arrays.asList` (Fixed-size List backed by an Array)
+```java
+List<String> fixedSizeList = Arrays.asList("A", "B", "C");
+```
+
+---
+
+## `Sets`
+
+### 1. Using `HashSet`
+```java
+Set<String> hashSet = new HashSet<>();
+Set<String> hashSetWithValues = new HashSet<>(Arrays.asList("A", "B", "C"));
+```
+
+### 2. Using `LinkedHashSet`
+```java
+Set<String> linkedHashSet = new LinkedHashSet<>();
+Set<String> linkedHashSetWithValues = new LinkedHashSet<>(Arrays.asList("A", "B", "C"));
+```
+
+### 3. Using `TreeSet` (Sorted Set)
+```java
+Set<String> treeSet = new TreeSet<>();
+Set<String> treeSetWithValues = new TreeSet<>(Arrays.asList("A", "B", "C"));
+```
+
+### 4. Using `Set.of` (Immutable Set in Java 9+)
+```java
+Set<String> immutableSet = Set.of("A", "B", "C");
+```
+
+---
+
+## `Maps`
+
+### 1. Using `HashMap`
+```java
+Map<Integer, String> hashMap = new HashMap<>();
+Map<Integer, String> hashMapWithValues = new HashMap<>(Map.of(1, "A", 2, "B", 3, "C"));
+```
+
+### 2. Using `LinkedHashMap`
+```java
+Map<Integer, String> linkedHashMap = new LinkedHashMap<>();
+Map<Integer, String> linkedHashMapWithValues = new LinkedHashMap<>(Map.of(1, "A", 2, "B", 3, "C"));
+```
+
+### 3. Using `TreeMap` (Sorted Map)
+```java
+Map<Integer, String> treeMap = new TreeMap<>();
+Map<Integer, String> treeMapWithValues = new TreeMap<>(Map.of(1, "A", 2, "B", 3, "C"));
+```
+
+### 4. Using `Map.of` (Immutable Map in Java 9+)
+```java
+Map<Integer, String> immutableMap = Map.of(1, "A", 2, "B", 3, "C");
+```
+
+### 5. Using `Map.ofEntries` for Larger Maps (Java 9+)
+```java
+Map<Integer, String> largeImmutableMap = Map.ofEntries(
+    Map.entry(1, "A"),
+    Map.entry(2, "B"),
+    Map.entry(3, "C"),
+    Map.entry(4, "D")
+);
+```
+
+---
+
+Each of these options has specific use cases, performance characteristics, and limitations. Choose based on whether you need an ordered collection (e.g., `LinkedList`, `LinkedHashSet`), sorted collection (e.g., `TreeSet`, `TreeMap`), or immutability (e.g., `List.of`, `Map.of`).
+
+
+
+
 # Fomatting Strings and Numbers
 
 ## `Java`
