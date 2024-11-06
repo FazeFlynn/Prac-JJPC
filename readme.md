@@ -1205,6 +1205,8 @@ print(ascii_value)  # Output: 32
 | DEL       | 127         |
 
 
+$$ H(S) = - p_{yes} \log_2(p_{yes}) - p_{no} \log_2(p_{no}) $$
+
 
 
 # **`End Of File`**
