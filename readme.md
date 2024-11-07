@@ -1199,13 +1199,15 @@ print(ascii_value)  # Output: 32
 | y         | 121         |
 | z         | 122         |
 | {         | 123         |
-| |         | 124         |
+| \|        | 124         |
 | }         | 125         |
 | ~         | 126         |
 | DEL       | 127         |
 
 
-$$ H(S) = - p_{yes} \log_2(p_{yes}) - p_{no} \log_2(p_{no}) $$
+`this is example` - $
+\Large H(S) = - p_{yes} \log_2(p_{yes}) - p_{no} \log_2(p_{no})
+$
 
 
 
