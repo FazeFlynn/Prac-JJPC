@@ -820,28 +820,28 @@ List<String> list = Arrays.asList("Apple", "Banana", "Cherry", "Apple");
 Set<String> set = list.stream().collect(Collectors.toSet());
 System.out.println(set); // Output: [Apple, Banana, Cherry]
 ```
-3. Using `Collectors.toCollection()`You can specify the type of set you want using `Collectors.toCollection()`.
+### 3. Using `Collectors.toCollection()`You can specify the type of set you want using `Collectors.toCollection()`.
 
 ```java
 List<String> list = Arrays.asList("Apple", "Banana", "Cherry", "Apple");
 Set<String> set = list.stream().collect(Collectors.toCollection(HashSet::new));
 System.out.println(set); // Output: [Apple, Banana, Cherry]
 ```
-4. Using a `TreeSet` for Sorted SetIf you want a sorted set, use `TreeSet`.
+### 4. Using a `TreeSet` for Sorted SetIf you want a sorted set, use `TreeSet`.
 
 ```java
 List<String> list = Arrays.asList("Banana", "Apple", "Cherry", "Apple");
 Set<String> set = new TreeSet<>(list);
 System.out.println(set); // Output: [Apple, Banana, Cherry]
 ```
-5. Using `LinkedHashSet` to Maintain OrderTo maintain the insertion order, use `LinkedHashSet`.
+### 5. Using `LinkedHashSet` to Maintain OrderTo maintain the insertion order, use `LinkedHashSet`.
 
 ```java
 List<String> list = Arrays.asList("Apple", "Banana", "Cherry", "Apple");
 Set<String> set = new LinkedHashSet<>(list);
 System.out.println(set); // Output: [Apple, Banana, Cherry]
 ```
-6. Using a `for-each` Loop
+### 6. Using a `for-each` Loop
 Manually iterate through the list and add elements to the set.
 
 
