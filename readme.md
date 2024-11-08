@@ -855,7 +855,211 @@ for (String item : list) {
 
 System.out.println(set); // Output: [Apple, Banana, Cherry]
 ```
+---
 
+# Priority Queues:
+
+**Priority Queue in Java** A **Priority Queue**  is a special type of queue in Java that orders elements based on their **natural ordering**  (for numbers, it will be smallest to largest by default) or based on a **custom comparator**  provided at the time of creation. It is part of the Java Collections Framework and implements the `Queue` interface.**Key Points:**  
+1. **Heap-based Implementation:**  Priority Queue is internally implemented using a **binary heap** .
+2. **Order of Elements:**  The head of the queue contains the **smallest**  element (for natural ordering) or the element with the **highest priority**  (for custom ordering).
+3. **Null Elements Not Allowed:**  Priority Queue **does not permit null**  elements.
+4. **Not Thread-Safe:**  It is not synchronized; if multiple threads are accessing it, consider using `PriorityBlockingQueue`.
+5. **Insertion Time Complexity:**  `O(log n)` for adding elements.
+6. **Access Time Complexity:**  `O(1)` for peeking the element at the head.
+7. **Removal Time Complexity:**  `O(log n)` for removing elements.
+
+**Basic Operations:**  
+- `add(element)` or `offer(element)`: Insert an element into the queue.
+- `peek()`: Retrieve, but do not remove, the head of the queue (returns `null` if the queue is empty).
+- `poll()`: Retrieve and remove the head of the queue (returns `null` if the queue is empty).
+- `remove(element)`: Remove a specific element from the queue.
+- `isEmpty()`: Check if the queue is empty.
+- `size()`: Get the size of the queue.
+
+**Example 1: Basic Priority Queue (Natural Ordering)** 
+
+```java
+import java.util.PriorityQueue;
+
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+pq.add(10);
+pq.add(5);
+pq.add(20);
+pq.add(1);
+
+System.out.println("Priority Queue: " + pq);
+// Peek the smallest element
+System.out.println("Peek: " + pq.peek()); // Output: 1
+
+// Poll (remove) the smallest element
+System.out.println("Poll: " + pq.poll()); // Output: 1
+
+System.out.println("Priority Queue after poll: " + pq);
+```
+**Output:** 
+
+```yaml
+Priority Queue: [1, 5, 20, 10]
+Peek: 1
+Poll: 1
+Priority Queue after poll: [5, 10, 20]
+```
+
+**Explanation:**  
+- The queue is automatically sorted in **ascending order** .
+- `peek()` retrieves but does not remove the head (smallest element).
+- `poll()` retrieves and removes the head.
+
+**Example 2: Custom Ordering using Comparator (Descending Order)** 
+
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
+
+pq.add(10);
+pq.add(5);
+pq.add(20);
+pq.add(1);
+
+System.out.println("Priority Queue: " + pq);
+// Peek the largest element
+System.out.println("Peek: " + pq.peek()); // Output: 20
+// Poll (remove) the largest element
+System.out.println("Poll: " + pq.poll()); // Output: 20
+
+System.out.println("Priority Queue after poll: " + pq);
+```
+**Output:** 
+
+```yaml
+Priority Queue: [20, 10, 5, 1]
+Peek: 20
+Poll: 20
+Priority Queue after poll: [10, 1, 5]
+```
+**Explanation:**  
+- The queue is sorted in **descending order**  using a custom comparator (`Comparator.reverseOrder()`).
+- The largest element is now the head of the queue.
+
+**Example 3: Priority Queue with Custom Object (Task Scheduling)** 
+
+```java
+import java.util.PriorityQueue;
+import java.util.Comparator;
+
+class Task {
+    String name;
+    int priority;
+
+    public Task(String name, int priority) {
+        this.name = name;
+        this.priority = priority;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{name='" + name + "', priority=" + priority + "}";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Custom comparator based on priority (lower number = higher priority)
+        PriorityQueue<Task> taskQueue = new PriorityQueue<>(Comparator.comparingInt(t -> t.priority));
+
+        taskQueue.add(new Task("Task 1", 3));
+        taskQueue.add(new Task("Task 2", 1));
+        taskQueue.add(new Task("Task 3", 2));
+
+        System.out.println("Task Queue: " + taskQueue);
+
+        // Process tasks based on priority
+        while (!taskQueue.isEmpty()) {
+            System.out.println("Processing: " + taskQueue.poll());
+        }
+    }
+}
+```
+**Output:** 
+
+```arduino
+Task Queue: [Task{name='Task 2', priority=1}, Task{name='Task 1', priority=3}, Task{name='Task 3', priority=2}]
+Processing: Task{name='Task 2', priority=1}
+Processing: Task{name='Task 3', priority=2}
+Processing: Task{name='Task 1', priority=3}
+```
+**Explanation:**  
+- A custom object `Task` is used with a priority.
+- The queue processes tasks based on the priority (lower value = higher priority).
+
+**Explanation:**  
+- A custom object `Task` is used with a priority.
+- The queue processes tasks based on the priority (lower value = higher priority).
+
+
+**Example 4: Using `offer()` and `remove()` Methods** 
+
+```java
+import java.util.PriorityQueue;
+
+PriorityQueue<String> pq = new PriorityQueue<>();
+
+pq.offer("Apple");
+pq.offer("Banana");
+pq.offer("Cherry");
+
+System.out.println("Priority Queue: " + pq);
+// Remove a specific element
+pq.remove("Banana");
+System.out.println("After removing Banana: " + pq);
+
+// Check the head element
+System.out.println("Peek: " + pq.peek());
+
+// Remove all elements
+while (!pq.isEmpty()) {
+    System.out.println("Poll: " + pq.poll());
+}
+```
+**Output:** 
+
+```yaml
+Priority Queue: [Apple, Banana, Cherry]
+After removing Banana: [Apple, Cherry]
+Peek: Apple
+Poll: Apple
+Poll: Cherry
+```
+**Example 5: Priority Queue with Strings (Lexicographical Order)** 
+
+```java
+import java.util.PriorityQueue;
+
+PriorityQueue<String> pq = new PriorityQueue<>();
+
+pq.add("Orange");
+pq.add("Apple");
+pq.add("Banana");
+
+System.out.println("Priority Queue: " + pq);
+
+// Poll elements in lexicographical order
+while (!pq.isEmpty()) {
+    System.out.println(pq.poll());
+}
+```
+**Output:** 
+
+```mathematica
+Priority Queue: [Apple, Orange, Banana]
+Apple
+Banana
+Orange
+```
+**Conclusion:** 
+- Priority Queues are versatile and can be customized with different comparators.
+- They are efficient for scenarios requiring frequent access to the smallest/largest element.
+- Be cautious of the order and behavior, as it is based on either **natural ordering**  or the **custom comparator**  provided.
 
 ---
 
