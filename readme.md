@@ -859,7 +859,7 @@ System.out.println(set); // Output: [Apple, Banana, Cherry]
 
 # Priority Queues:
 
-**Priority Queue in Java** A **Priority Queue**  is a special type of queue in Java that orders elements based on their **natural ordering**  (for numbers, it will be smallest to largest by default) or based on a **custom comparator**  provided at the time of creation. It is part of the Java Collections Framework and implements the `Queue` interface.**Key Points:**  
+A **Priority Queue**  is a special type of queue in Java that orders elements based on their **natural ordering**  (for numbers, it will be smallest to largest by default) or based on a **custom comparator**  provided at the time of creation. It is part of the Java Collections Framework and implements the `Queue` interface.**Key Points:**  
 1. **Heap-based Implementation:**  Priority Queue is internally implemented using a **binary heap** .
 2. **Order of Elements:**  The head of the queue contains the **smallest**  element (for natural ordering) or the element with the **highest priority**  (for custom ordering).
 3. **Null Elements Not Allowed:**  Priority Queue **does not permit null**  elements.
