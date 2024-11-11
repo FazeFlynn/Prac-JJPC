@@ -1030,6 +1030,30 @@ Peek: Apple
 Poll: Apple
 Poll: Cherry
 ```
+<!-- ================================================================================= -->
+
+#### Difference between `.offer()` and `.add()`:
+
+1. **Return Value:**  
+    - `.offer()` returns a **boolean**  value (`true` if the element was successfully inserted, `false` otherwise).
+    - `.add()` does not return a boolean; it throws an exception if the insertion fails.
+ 
+2. **Exception Handling:**  
+    - `.offer()` **does not throw an exception**  if the queue cannot accommodate the new element. Instead, it simply returns `false`.
+    - `.add()` will throw an **`.add()` will throw an `IllegalStateException`**  if the queue is full (for capacity-bounded queues like `ArrayBlockingQueue`).
+ 
+3. **Preferred Usage:**  
+    - `.offer()` is generally preferred when working with queues because it follows the **fail-safe**  pattern, returning `false` instead of throwing an exception.
+    - `.add()` is used when you want to enforce strict insertion behavior and be notified immediately with an exception if the operation fails.
+
+
+
+
+
+<!-- ================================================================================= -->
+
+
+
 **Example 5: Priority Queue with Strings (Lexicographical Order)** 
 
 ```java
