@@ -1722,33 +1722,28 @@ This approach has a time complexity of **O(n)**, where `n` is the length of the 
 
 ### Java Solution:
 ```java
-public class ReverseOnlyLetters {
-    public static String reverseOnlyLetters(String s) {
-        char[] chars = s.toCharArray();
-        int left = 0, right = s.length() - 1;
-
-        while (left < right) {
-            if (!Character.isLetter(chars[left])) {
-                left++;
-            } else if (!Character.isLetter(chars[right])) {
-                right--;
-            } else {
-                // Swap letters
-                char temp = chars[left];
-                chars[left] = chars[right];
-                chars[right] = temp;
-                left++;
-                right--;
-            }
+public static String reverseOnlyLetters(String s) {
+    char[] chars = s.toCharArray();
+    int left = 0, right = s.length() - 1;
+    while (left < right) {
+        if (!Character.isLetter(chars[left])) {
+            left++;
+        } else if (!Character.isLetter(chars[right])) {
+            right--;
+        } else {
+            // Swap letters
+            char temp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+            left++;
+            right--;
         }
-        return new String(chars);
     }
-
-    public static void main(String[] args) {
-        String input = "a-bC-dEf-ghIj";
-        System.out.println(reverseOnlyLetters(input)); // Output: "j-Ih-gfE-dCba"
-    }
+    return new String(chars);
 }
+
+String input = "a-bC-dEf-ghIj";
+System.out.println(reverseOnlyLetters(input)); // Output: "j-Ih-gfE-dCba"
 ```
 
 ### JavaScript Solution:
