@@ -1146,6 +1146,7 @@ In graph theory, Dijkstra’s algorithm uses a priority queue to repeatedly extr
 ```java
 PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingInt(Node::getDistance));
 ```
+
 **2. Event Management in a Game Engine** 
 In game development, events like enemy attacks or power-ups are often prioritized based on their importance or time of occurrence.
 
@@ -1345,7 +1346,96 @@ Faze FLynn 21 1.2 21 21
 
 # Logic Section
 
-## `Logic` -  Split the timestamp string "1:10:20" into hours, minutes, and seconds
+- ## Logic - Achieve the Following Output:
+
+```
+Input - my name is ashwini borla
+Output - ym alrob eman iniwhsa si
+
+```
+
+- To achieve the output, you need to reverse each word in the sentence and then reverse the entire sentence. Here's the code in Java, Python, and JavaScript.
+
+### **Java Solution**
+```java
+public class Main {
+    public static void main(String[] args) {
+        String input = "my name is ashwini borla";
+        System.out.println(reverseSentence(input));
+    }
+
+    public static String reverseSentence(String sentence) {
+        String[] words = sentence.split(" ");
+        StringBuilder result = new StringBuilder();
+
+        // Reverse each word and append it
+        for (String word : words) {
+            result.append(new StringBuilder(word).reverse()).append(" ");
+        }
+
+        // Reverse the entire sentence
+        return result.reverse().toString().trim();
+    }
+}
+```
+
+**Output:**
+```
+ym alrob eman iniwhsa si
+```
+
+### **Python Solution**
+```python
+def reverse_sentence(sentence):
+    words = sentence.split()
+    reversed_words = [word[::-1] for word in words]
+    reversed_sentence = " ".join(reversed_words)
+    return reversed_sentence[::-1]
+
+input_string = "my name is ashwini borla"
+output = reverse_sentence(input_string)
+print(output)
+```
+
+**Output:**
+```
+ym alrob eman iniwhsa si
+```
+
+### **JavaScript Solution**
+```javascript
+function reverseSentence(sentence) {
+    const words = sentence.split(" ");
+    const reversedWords = words.map(word => word.split("").reverse().join(""));
+    const reversedSentence = reversedWords.join(" ").split("").reverse().join("");
+    return reversedSentence;
+}
+
+const input = "my name is ashwini borla";
+console.log(reverseSentence(input));
+```
+
+**Output:**
+```
+ym alrob eman iniwhsa si
+```
+
+### **Explanation:**
+1. Split the sentence into words.
+2. Reverse each word individually.
+3. Join the reversed words back into a sentence.
+4. Reverse the entire sentence.
+
+This approach handles the problem efficiently and ensures that the sentence and words are reversed as required.
+
+
+
+
+<!-- ============================================================= -->
+---
+
+
+- ## `Logic` -  Split the timestamp string "1:10:20" into hours, minutes, and seconds
 
 ### Java
 ```java
@@ -1593,10 +1683,325 @@ print(ascii_value)  # Output: 32
 | DEL       | 127         |
 
 
-`this is example` - $
-\Large H(S) = - p_{yes} \log_2(p_{yes}) - p_{no} \log_2(p_{no})
-$
+
+---
+
+# Tricky Questions Section
+
+Here are some tricky coding challenges that will help you sharpen your logical thinking and deepen your understanding of Java, Python, and JavaScript. These problems focus on various topics like string manipulation, recursion, data structures, and algorithmic challenges.
+
+### 1. **Reverse Only Letters in a String**
+Given a string, reverse only the letters while keeping the non-letter characters in their original positions.
+
+**Example:**
+- Input: `"a-bC-dEf-ghIj"`
+- Output: `"j-Ih-gfE-dCba"`
+
+### 2. **Find Longest Substring Without Repeating Characters**
+Given a string, find the length of the longest substring without repeating characters.
+
+**Example:**
+- Input: `"abcabcbb"`
+- Output: `3` (The answer is `"abc"`)
+
+### 3. **Spiral Matrix**
+Given a 2D array, return the elements of the array in a spiral order.
+
+**Example:**
+- Input:
+  ```
+  [[1, 2, 3],
+   [4, 5, 6],
+   [7, 8, 9]]
+  ```
+- Output: `[1, 2, 3, 6, 9, 8, 7, 4, 5]`
+
+### 4. **Find Missing Number**
+Given an array of integers from `1` to `n` with one number missing, find the missing number.
+
+**Example:**
+- Input: `[1, 2, 4, 5, 6]`
+- Output: `3`
+
+### 5. **Permutations of a String**
+Write a program to generate all permutations of a given string.
+
+**Example:**
+- Input: `"ABC"`
+- Output: `["ABC", "ACB", "BAC", "BCA", "CAB", "CBA"]`
+
+### 6. **Merge Intervals**
+Given a list of intervals, merge all overlapping intervals.
+
+**Example:**
+- Input: `[[1, 3], [2, 6], [8, 10], [15, 18]]`
+- Output: `[[1, 6], [8, 10], [15, 18]]`
+
+### 7. **Next Greater Element**
+Given an array of integers, find the next greater element for each element in the array. If there is no greater element, return `-1`.
+
+**Example:**
+- Input: `[4, 5, 2, 10]`
+- Output: `[5, 10, 10, -1]`
+
+### 8. **Find the First Non-Repeating Character**
+Given a string, find the first non-repeating character.
+
+**Example:**
+- Input: `"swiss"`
+- Output: `"w"`
+
+### 9. **Matrix Rotation**
+Rotate a given `n x n` matrix by 90 degrees clockwise.
+
+**Example:**
+- Input:
+  ```
+  [[1, 2, 3],
+   [4, 5, 6],
+   [7, 8, 9]]
+  ```
+- Output:
+  ```
+  [[7, 4, 1],
+   [8, 5, 2],
+   [9, 6, 3]]
+  ```
+
+### 10. **Valid Parentheses**
+Given a string containing only the characters `(`, `)`, `{`, `}`, `[` and `]`, determine if the input string is valid.
+
+**Example:**
+- Input: `"()[]{}"`
+- Output: `true`
+
+- Input: `"(]"`
+- Output: `false`
+
+### 11. **Largest Rectangle in Histogram**
+Given an array of integers representing the heights of bars in a histogram, find the area of the largest rectangle that can be formed.
+
+**Example:**
+- Input: `[2, 1, 5, 6, 2, 3]`
+- Output: `10`
+
+### 12. **Trapping Rain Water**
+Given `n` non-negative integers representing the height of bars, find how much water can be trapped after raining.
+
+**Example:**
+- Input: `[0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]`
+- Output: `6`
+
+### 13. **Find the Longest Palindromic Substring**
+Given a string, find the longest palindromic substring.
+
+**Example:**
+- Input: `"babad"`
+- Output: `"bab"` or `"aba"`
+
+### 14. **Convert Roman Numerals to Integer**
+Given a Roman numeral, convert it to an integer.
+
+**Example:**
+- Input: `"IX"`
+- Output: `9`
+
+- Input: `"LVIII"`
+- Output: `58`
+
+### 15. **Generate Parentheses**
+Given `n` pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+**Example:**
+- Input: `n = 3`
+- Output: `["((()))", "(()())", "(())()", "()(())", "()()()"]`
+
+### 16. **Zigzag Conversion**
+Convert a string into a zigzag pattern and read it row by row.
+
+**Example:**
+- Input: `"PAYPALISHIRING"`, `numRows = 3`
+- Output: `"PAHNAPLSIIGYIR"`
+
+### 17. **Reorder Log Files**
+Given an array of logs, reorder the logs so that all letter-logs come before digit-logs. Letter-logs are sorted lexicographically.
+
+**Example:**
+- Input: `["dig1 8 1 5 1", "let1 art can", "dig2 3 6", "let2 own kit dig", "let3 art zero"]`
+- Output: `["let1 art can", "let3 art zero", "let2 own kit dig", "dig1 8 1 5 1", "dig2 3 6"]`
+
+### 18. **Word Ladder**
+Given two words (`beginWord` and `endWord`) and a dictionary of words, find the length of the shortest transformation sequence.
+
+**Example:**
+- Input: `beginWord = "hit"`, `endWord = "cog"`, `wordList = ["hot", "dot", "dog", "lot", "log", "cog"]`
+- Output: `5`
+
+### 19. **Product of Array Except Self**
+Given an array, return an array where each element is the product of all elements except itself.
+
+**Example:**
+- Input: `[1, 2, 3, 4]`
+- Output: `[24, 12, 8, 6]`
+
+### 20. **Find the Median of Two Sorted Arrays**
+Given two sorted arrays, find the median of the combined sorted array.
+
+**Example:**
+- Input: `nums1 = [1, 3]`, `nums2 = [2]`
+- Output: `2.0`
+
+
+### 21. **Subarray with Given Sum**
+Given an unsorted array of non-negative integers, find a subarray that adds up to a given sum.
+
+**Example:**
+- Input: `arr = [1, 4, 20, 3, 10, 5]`, `sum = 33`
+- Output: Subarray `[20, 3, 10]`
+
+### 22. **Find the Majority Element**
+Given an array of integers, find the majority element (the element that appears more than `n/2` times).
+
+**Example:**
+- Input: `[3, 2, 3]`
+- Output: `3`
+
+### 23. **Count Inversions in an Array**
+An inversion is a pair of elements where the first element is greater than the second element but appears before it in the array. Find the total number of inversions.
+
+**Example:**
+- Input: `[2, 4, 1, 3, 5]`
+- Output: `3` (Inversions: `(2, 1)`, `(4, 1)`, `(4, 3)`)
+
+### 24. **First Missing Positive**
+Given an unsorted integer array, find the smallest missing positive integer.
+
+**Example:**
+- Input: `[3, 4, -1, 1]`
+- Output: `2`
+
+### 25. **Merge K Sorted Lists**
+Given `k` sorted linked lists, merge them into one sorted linked list.
+
+**Example:**
+- Input: `lists = [[1, 4, 5], [1, 3, 4], [2, 6]]`
+- Output: `[1, 1, 2, 3, 4, 4, 5, 6]`
+
+### 26. **Game of Life**
+Implement the "Game of Life," a cellular automaton where each cell lives, dies, or is born based on its neighbors.
+
+**Example:**
+- Input:
+  ```
+  [[0, 1, 0],
+   [0, 0, 1],
+   [1, 1, 1],
+   [0, 0, 0]]
+  ```
+- Output:
+  ```
+  [[0, 0, 0],
+   [1, 0, 1],
+   [0, 1, 1],
+   [0, 1, 0]]
+  ```
+
+### 27. **Largest Palindromic Subsequence**
+Given a string, find the length of the longest palindromic subsequence.
+
+**Example:**
+- Input: `"bbbab"`
+- Output: `4` (The subsequence is `"bbbb"`)
+
+### 28. **Container With Most Water**
+Given `n` vertical lines on a graph, find two lines that together with the x-axis form a container that holds the most water.
+
+**Example:**
+- Input: `[1, 8, 6, 2, 5, 4, 8, 3, 7]`
+- Output: `49`
+
+### 29. **Sliding Window Maximum**
+Given an array and an integer `k`, find the maximum value in each sliding window of size `k`.
+
+**Example:**
+- Input: `arr = [1, 3, -1, -3, 5, 3, 6, 7]`, `k = 3`
+- Output: `[3, 3, 5, 5, 6, 7]`
+
+### 30. **Find the Longest Consecutive Sequence**
+Given an unsorted array of integers, find the length of the longest consecutive sequence.
+
+**Example:**
+- Input: `[100, 4, 200, 1, 3, 2]`
+- Output: `4` (The sequence is `[1, 2, 3, 4]`)
+
+### 31. **Rotate an Array**
+Given an array, rotate the array to the right by `k` steps.
+
+**Example:**
+- Input: `nums = [1, 2, 3, 4, 5, 6, 7]`, `k = 3`
+- Output: `[5, 6, 7, 1, 2, 3, 4]`
+
+### 32. **Minimum Window Substring**
+Given two strings `s` and `t`, find the minimum window in `s` which contains all the characters of `t`.
+
+**Example:**
+- Input: `s = "ADOBECODEBANC"`, `t = "ABC"`
+- Output: `"BANC"`
+
+### 33. **3Sum Problem**
+Find all unique triplets in an array that give the sum of zero.
+
+**Example:**
+- Input: `nums = [-1, 0, 1, 2, -1, -4]`
+- Output: `[[-1, -1, 2], [-1, 0, 1]]`
+
+### 34. **Longest Common Subsequence**
+Given two strings, find the longest subsequence present in both strings.
+
+**Example:**
+- Input: `"abcde"`, `"ace"`
+- Output: `3` (The subsequence is `"ace"`)
+
+### 35. **Sudoku Solver**
+Write a program to solve a Sudoku puzzle by filling the empty cells.
+
+**Example:**
+- Input:
+  ```
+  [["5","3",".",".","7",".",".",".","."],
+   ["6",".",".","1","9","5",".",".","."],
+   [".","9","8",".",".",".",".","6","."],
+   ["8",".",".",".","6",".",".",".","3"],
+   ["4",".",".","8",".","3",".",".","1"],
+   ["7",".",".",".","2",".",".",".","6"],
+   [".","6",".",".",".",".","2","8","."],
+   [".",".",".","4","1","9",".",".","5"],
+   [".",".",".",".","8",".",".","7","9"]]
+  ```
+- Output:
+  ```
+  [["5","3","4","6","7","8","9","1","2"],
+   ["6","7","2","1","9","5","3","4","8"],
+   ["1","9","8","3","4","2","5","6","7"],
+   ["8","5","9","7","6","1","4","2","3"],
+   ["4","2","6","8","5","3","7","9","1"],
+   ["7","1","3","9","2","4","8","5","6"],
+   ["9","6","1","5","3","7","2","8","4"],
+   ["2","8","7","4","1","9","6","3","5"],
+   ["3","4","5","2","8","6","1","7","9"]]
+  ```
+
+### 36. **Reverse Nodes in k-Group**
+Given a linked list, reverse the nodes of the list `k` at a time.
+
+**Example:**
+- Input: `1 -> 2 -> 3 -> 4 -> 5`, `k = 3`
+- Output: `3 -> 2 -> 1 -> 4 -> 5`
+
+---
 
 
 
-# **`End Of File`**
+$$
+\Large \text{End Of File}
+$$
