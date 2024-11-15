@@ -1351,32 +1351,27 @@ Faze FLynn 21 1.2 21 21
 ```
 Input - my name is ashwini borla
 Output - ym alrob eman iniwhsa si
-
 ```
 
 - To achieve the output, you need to reverse each word in the sentence and then reverse the entire sentence. Here's the code in Java, Python, and JavaScript.
 
 ### **Java Solution**
 ```java
-public class Main {
-    public static void main(String[] args) {
-        String input = "my name is ashwini borla";
-        System.out.println(reverseSentence(input));
+public static String reverseSentence(String sentence) {
+    String[] words = sentence.split(" ");
+    StringBuilder result = new StringBuilder();
+
+    // Reverse each word and append it
+    for (String word : words) {
+        result.append(new StringBuilder(word).reverse()).append(" ");
     }
 
-    public static String reverseSentence(String sentence) {
-        String[] words = sentence.split(" ");
-        StringBuilder result = new StringBuilder();
-
-        // Reverse each word and append it
-        for (String word : words) {
-            result.append(new StringBuilder(word).reverse()).append(" ");
-        }
-
-        // Reverse the entire sentence
-        return result.reverse().toString().trim();
-    }
+    // Reverse the entire sentence
+    return result.reverse().toString().trim();
 }
+
+String input = "my name is ashwini borla";
+System.out.println(reverseSentence(input));
 ```
 
 **Output:**
