@@ -1677,7 +1677,21 @@ print(ascii_value)  # Output: 32
 | ~         | 126         |
 | DEL       | 127         |
 
+---
 
+# Default Values of All Data Types in Java:
+
+| Data Type      | Default Value |
+| -------------- | ------------- |
+| `byte`         | `0`           |
+| `short`        | `0`           |
+| `int`          | `0`           |
+| `long`         | `0L`          |
+| `float`        | `0.0f`        |
+| `double`       | `0.0d`        |
+| `char`         | `'\u0000'` (null character) |
+| `boolean`      | `false`       |
+| `String` (or any object) | `null`       |
 
 ---
 
@@ -1691,6 +1705,114 @@ Given a string, reverse only the letters while keeping the non-letter characters
 **Example:**
 - Input: `"a-bC-dEf-ghIj"`
 - Output: `"j-Ih-gfE-dCba"`
+
+
+
+### Solution: Reverse Only Letters in a String
+Given a string, reverse only the alphabetic characters while keeping non-letter characters in their original positions.
+
+### Optimized Approach:
+The most efficient way to solve this problem is to use a two-pointer technique:
+- One pointer starts from the beginning (`left`).
+- The other pointer starts from the end (`right`).
+- Swap only if both pointers point to alphabetic characters.
+- Move the pointers accordingly (increment `left` and decrement `right`).
+
+This approach has a time complexity of **O(n)**, where `n` is the length of the string, because each character is processed at most once.
+
+### Java Solution:
+```java
+public class ReverseOnlyLetters {
+    public static String reverseOnlyLetters(String s) {
+        char[] chars = s.toCharArray();
+        int left = 0, right = s.length() - 1;
+
+        while (left < right) {
+            if (!Character.isLetter(chars[left])) {
+                left++;
+            } else if (!Character.isLetter(chars[right])) {
+                right--;
+            } else {
+                // Swap letters
+                char temp = chars[left];
+                chars[left] = chars[right];
+                chars[right] = temp;
+                left++;
+                right--;
+            }
+        }
+        return new String(chars);
+    }
+
+    public static void main(String[] args) {
+        String input = "a-bC-dEf-ghIj";
+        System.out.println(reverseOnlyLetters(input)); // Output: "j-Ih-gfE-dCba"
+    }
+}
+```
+
+### JavaScript Solution:
+```javascript
+function reverseOnlyLetters(s) {
+    const arr = s.split('');
+    let left = 0, right = s.length - 1;
+
+    while (left < right) {
+        if (!/[a-zA-Z]/.test(arr[left])) {
+            left++;
+        } else if (!/[a-zA-Z]/.test(arr[right])) {
+            right--;
+        } else {
+            // Swap letters
+            [arr[left], arr[right]] = [arr[right], arr[left]];
+            left++;
+            right--;
+        }
+    }
+    return arr.join('');
+}
+
+// Example usage:
+const input = "a-bC-dEf-ghIj";
+console.log(reverseOnlyLetters(input)); // Output: "j-Ih-gfE-dCba"
+```
+
+### Python Solution:
+```python
+def reverse_only_letters(s: str) -> str:
+    chars = list(s)
+    left, right = 0, len(s) - 1
+
+    while left < right:
+        if not chars[left].isalpha():
+            left += 1
+        elif not chars[right].isalpha():
+            right -= 1
+        else:
+            # Swap letters
+            chars[left], chars[right] = chars[right], chars[left]
+            left += 1
+            right -= 1
+
+    return ''.join(chars)
+
+# Example usage:
+input_str = "a-bC-dEf-ghIj"
+print(reverse_only_letters(input_str)) # Output: "j-Ih-gfE-dCba"
+```
+
+### Explanation:
+1. **Two-pointer technique** ensures we process the string in a single pass, making the solution efficient.
+2. **Character checks** (`isLetter`, `[a-zA-Z]`, and `isalpha()`) ensure that non-alphabetic characters remain in their original positions.
+3. **Swapping** the characters using temporary variables or destructuring helps reverse the alphabetic characters.
+
+This approach is efficient and works well for all edge cases, including strings with special characters, digits, and mixed cases.
+
+
+
+---
+
+
 
 ### 2. **Find Longest Substring Without Repeating Characters**
 Given a string, find the length of the longest substring without repeating characters.
