@@ -1413,6 +1413,7 @@ System.out.println(reverseSentence(input));
 borla ashwini is name my
 ```
 
+
 ### **Python Solution**
 ```python
 def reverse_sentence(sentence):
@@ -1458,6 +1459,8 @@ borla ashwini is name my
 This approach handles the problem efficiently and ensures that the sentence and words are reversed as required.
 
 
+[Want to see the question again](#java-4)
+<!-- [Want to see the question again](https://github.com/FazeFlynn/Prac-JJPC/tree/main?tab=readme-ov-file#java-4) -->
 
 
 <!-- ============================================================= -->
