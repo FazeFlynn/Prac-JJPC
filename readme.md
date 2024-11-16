@@ -1353,6 +1353,40 @@ Input - my name is ashwini borla
 Output - ym alrob eman iniwhsa si
 ```
 
+- To achieve the output, you need to reverse each word in the sentence and then reverse the entire sentence. Here's the code in Java.
+
+### `java`
+```java
+String Gibberish(String str){
+
+    String[] words = str.split(" ");
+    int len = words.length;
+
+    int left = 0;
+    int right = len - 1;
+    boolean wasLeft = false;
+
+    StringBuilder result = new StringBuilder();    
+
+    while(left <= right) {
+        if (!wasLeft){
+            result.append(new StringBuilder(words[left++]).reverse().toString() + " ");
+            wasLeft = true;
+        } else {
+            result.append(new StringBuilder(words[right--]).reverse().toString() + " ");
+            wasLeft = false;
+        }        
+    }
+
+    return result.toString().trim();
+}
+
+String str = "my name is ashwini borla";
+System.out.println(Gibberish(str));
+```
+
+#### Other Output - `borla ashwini is name my`:
+
 - To achieve the output, you need to reverse each word in the sentence and then reverse the entire sentence. Here's the code in Java, Python, and JavaScript.
 
 ### **Java Solution**
@@ -1376,7 +1410,7 @@ System.out.println(reverseSentence(input));
 
 **Output:**
 ```
-ym alrob eman iniwhsa si
+borla ashwini is name my
 ```
 
 ### **Python Solution**
@@ -1394,7 +1428,7 @@ print(output)
 
 **Output:**
 ```
-ym alrob eman iniwhsa si
+borla ashwini is name my
 ```
 
 ### **JavaScript Solution**
@@ -1412,7 +1446,7 @@ console.log(reverseSentence(input));
 
 **Output:**
 ```
-ym alrob eman iniwhsa si
+borla ashwini is name my
 ```
 
 ### **Explanation:**
