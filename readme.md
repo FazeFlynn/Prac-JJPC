@@ -2136,7 +2136,1156 @@ Given a linked list, reverse the nodes of the list `k` at a time.
 
 ---
 
+# Solved Questions For IntPrep
 
+### Question 1: Write a code to reverse a number
+```java
+// Reverse a number
+public class Main {
+    public static void main(String[] args) {
+        int number = 12345;
+        int reversed = 0;
+        
+        while (number != 0) {
+            int digit = number % 10; // Extract last digit
+            reversed = reversed * 10 + digit; // Append digit to reversed number
+            number /= 10; // Remove last digit from the original number
+        }
+        
+        System.out.println("Reversed Number: " + reversed);
+    }
+}
+```
+
+---
+
+### Question 2: Write the code to find the Fibonacci series up to the nth term
+```java
+// Fibonacci series up to nth term
+public class Main {
+    public static void main(String[] args) {
+        int n = 10; // Number of terms
+        int a = 0, b = 1;
+        
+        System.out.print("Fibonacci Series: ");
+        for (int i = 1; i <= n; i++) {
+            System.out.print(a + " "); // Print current term
+            int next = a + b; // Calculate next term
+            a = b;
+            b = next;
+        }
+    }
+}
+```
+
+---
+
+### Question 3: Write code for Greatest Common Divisor
+```java
+// Find GCD using Euclidean algorithm
+public class Main {
+    public static void main(String[] args) {
+        int a = 56, b = 98;
+        
+        while (b != 0) {
+            int temp = b;
+            b = a % b; // Remainder becomes the next divisor
+            a = temp;
+        }
+        
+        System.out.println("GCD: " + a);
+    }
+}
+```
+
+---
+
+### Question 4: Write code for Perfect Number
+```java
+// Check if a number is a Perfect Number
+public class Main {
+    public static void main(String[] args) {
+        int number = 28;
+        int sum = 0;
+        
+        for (int i = 1; i <= number / 2; i++) {
+            if (number % i == 0) { // Check for divisors
+                sum += i;
+            }
+        }
+        
+        if (sum == number) {
+            System.out.println(number + " is a Perfect Number");
+        } else {
+            System.out.println(number + " is not a Perfect Number");
+        }
+    }
+}
+```
+
+---
+
+### Question 5: Write code to Check if two strings are Anagram or not
+```java
+// Check if two strings are Anagrams
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        String str1 = "listen", str2 = "silent";
+        
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+        
+        Arrays.sort(arr1); // Sort both strings
+        Arrays.sort(arr2);
+        
+        if (Arrays.equals(arr1, arr2)) {
+            System.out.println("Strings are Anagrams");
+        } else {
+            System.out.println("Strings are not Anagrams");
+        }
+    }
+}
+```
+
+---
+
+### Question 6: Write code to Check if the given string is a Palindrome or not
+```java
+// Check if a string is a Palindrome
+public class Main {
+    public static void main(String[] args) {
+        String str = "madam";
+        int left = 0, right = str.length() - 1;
+        
+        boolean isPalindrome = true;
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                isPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
+        }
+        
+        if (isPalindrome) {
+            System.out.println("String is a Palindrome");
+        } else {
+            System.out.println("String is not a Palindrome");
+        }
+    }
+}
+```
+
+---
+
+### Question 7: Write code to Calculate frequency of characters in a string
+```java
+// Calculate frequency of characters
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        String str = "hello";
+        HashMap<Character, Integer> frequency = new HashMap<>();
+        
+        for (char ch : str.toCharArray()) {
+            frequency.put(ch, frequency.getOrDefault(ch, 0) + 1); // Increment count
+        }
+        
+        System.out.println("Character Frequencies: " + frequency);
+    }
+}
+```
+
+---
+
+### Question 8: Write code to check if two strings match where one string contains wildcard characters
+```java
+// String match with wildcard characters
+public class Main {
+    public static void main(String[] args) {
+        String str = "abcdef";
+        String pattern = "a*ef";
+        System.out.println("Strings Match: " + isMatch(str, pattern));
+    }
+    
+    public static boolean isMatch(String str, String pattern) {
+        return str.matches(pattern.replace("*", ".*")); // Convert wildcard to regex and match
+    }
+}
+```
+
+---
+
+### Question 9: Write a code for Bubble Sort
+```java
+// Bubble Sort implementation
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 8, 4, 2};
+        
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp; // Swap if out of order
+                }
+            }
+        }
+        
+        System.out.println("Sorted Array: " + Arrays.toString(arr));
+    }
+}
+```
+
+---
+
+### Question 10: How is the Merge Sort algorithm implemented?
+```java
+// Merge Sort implementation
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 8, 4, 2};
+        mergeSort(arr, 0, arr.length - 1);
+        System.out.println("Sorted Array: " + Arrays.toString(arr));
+    }
+    
+    public static void mergeSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+            mergeSort(arr, left, mid); // Sort left half
+            mergeSort(arr, mid + 1, right); // Sort right half
+            merge(arr, left, mid, right); // Merge sorted halves
+        }
+    }
+    
+    public static void merge(int[] arr, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+        int[] leftArr = new int[n1];
+        int[] rightArr = new int[n2];
+        
+        for (int i = 0; i < n1; i++) leftArr[i] = arr[left + i];
+        for (int i = 0; i < n2; i++) rightArr[i] = arr[mid + 1 + i];
+        
+        int i = 0, j = 0, k = left;
+        while (i < n1 && j < n2) {
+            if (leftArr[i] <= rightArr[j]) {
+                arr[k++] = leftArr[i++];
+            } else {
+                arr[k++] = rightArr[j++];
+            }
+        }
+        
+        while (i < n1) arr[k++] = leftArr[i++];
+        while (j < n2) arr[k++] = rightArr[j++];
+    }
+}
+```
+---
+
+### Question 11: Write a code to check whether a given year is a leap year or not
+```java
+// Check Leap Year
+public class Main {
+    public static void main(String[] args) {
+        int year = 2024;
+        
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            System.out.println(year + " is a Leap Year");
+        } else {
+            System.out.println(year + " is not a Leap Year");
+        }
+    }
+}
+```
+
+---
+
+### Question 12: Find non-repeating characters in a string
+```java
+// Find non-repeating characters
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class Main {
+    public static void main(String[] args) {
+        String str = "swiss";
+        LinkedHashMap<Character, Integer> charCount = new LinkedHashMap<>();
+        
+        for (char c : str.toCharArray()) {
+            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+        }
+        
+        for (Map.Entry<Character, Integer> entry : charCount.entrySet()) {
+            if (entry.getValue() == 1) {
+                System.out.print(entry.getKey() + " ");
+            }
+        }
+    }
+}
+```
+
+---
+
+### Question 13: Write a code to replace a substring in a string
+```java
+// Replace a substring
+public class Main {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        String toReplace = "World";
+        String replacement = "Java";
+        
+        String result = str.replace(toReplace, replacement);
+        System.out.println(result);
+    }
+}
+```
+
+---
+
+### Question 14: Write a code for Heap Sort
+```java
+// Heap Sort implementation
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {4, 10, 3, 5, 1};
+        heapSort(arr);
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+    
+    public static void heapSort(int[] arr) {
+        int n = arr.length;
+        
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(arr, n, i);
+        }
+        
+        for (int i = n - 1; i > 0; i--) {
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+            heapify(arr, i, 0);
+        }
+    }
+    
+    public static void heapify(int[] arr, int n, int i) {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        
+        if (left < n && arr[left] > arr[largest]) largest = left;
+        if (right < n && arr[right] > arr[largest]) largest = right;
+        
+        if (largest != i) {
+            int swap = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = swap;
+            heapify(arr, n, largest);
+        }
+    }
+}
+```
+
+---
+
+### Question 15: Write a code to replace each element in an array by its rank in the array
+```java
+// Replace elements with their rank
+import java.util.Arrays;
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {40, 10, 20, 30};
+        int[] sortedArr = arr.clone();
+        Arrays.sort(sortedArr);
+        
+        HashMap<Integer, Integer> ranks = new HashMap<>();
+        int rank = 1;
+        for (int num : sortedArr) {
+            if (!ranks.containsKey(num)) {
+                ranks.put(num, rank++);
+            }
+        }
+        
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = ranks.get(arr[i]);
+        }
+        
+        System.out.println(Arrays.toString(arr));
+    }
+}
+```
+
+---
+
+### Question 16: Write a code to find circular rotation of an array by K positions
+```java
+// Circular rotation of an array
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int k = 2;
+        
+        k %= arr.length; // Adjust if k > array length
+        reverse(arr, 0, arr.length - 1);
+        reverse(arr, 0, k - 1);
+        reverse(arr, k, arr.length - 1);
+        
+        System.out.println(Arrays.toString(arr));
+    }
+    
+    public static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
+```
+
+---
+
+### Question 17: Write a code to find non-repeating elements in an array
+```java
+// Find non-repeating elements
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {4, 5, 6, 4, 6, 7};
+        HashMap<Integer, Integer> freq = new HashMap<>();
+        
+        for (int num : arr) {
+            freq.put(num, freq.getOrDefault(num, 0) + 1);
+        }
+        
+        for (int num : arr) {
+            if (freq.get(num) == 1) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
+```
+
+---
+
+### Question 18: Write a code to check for the longest palindrome in an array
+```java
+// Find longest palindrome in array
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {121, 344, 232, 454, 11};
+        int longest = 0;
+        
+        for (int num : arr) {
+            if (isPalindrome(num) && num > longest) {
+                longest = num;
+            }
+        }
+        
+        System.out.println("Longest Palindrome: " + longest);
+    }
+    
+    public static boolean isPalindrome(int num) {
+        int original = num, reversed = 0;
+        while (num > 0) {
+            reversed = reversed * 10 + num % 10;
+            num /= 10;
+        }
+        return original == reversed;
+    }
+}
+```
+
+---
+
+### Question 19: Write a code to find the factorial of a number
+```java
+// Find factorial of a number
+public class Main {
+    public static void main(String[] args) {
+        int n = 5;
+        int factorial = 1;
+        
+        for (int i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+        
+        System.out.println("Factorial: " + factorial);
+    }
+}
+```
+
+---
+
+### Question 20: Write the code for Armstrong number
+```java
+// Check Armstrong number
+public class Main {
+    public static void main(String[] args) {
+        int num = 153, sum = 0, temp = num;
+        int digits = String.valueOf(num).length();
+        
+        while (temp > 0) {
+            int digit = temp % 10;
+            sum += Math.pow(digit, digits); // Raise digit to the power of digits
+            temp /= 10;
+        }
+        
+        if (sum == num) {
+            System.out.println(num + " is an Armstrong Number");
+        } else {
+            System.out.println(num + " is not an Armstrong Number");
+        }
+    }
+}
+```
+
+---
+
+### Question 21: Write a program to find the sum of Natural Numbers using Recursion
+```java
+// Sum of Natural Numbers using Recursion
+public class Main {
+    public static void main(String[] args) {
+        int n = 10;
+        System.out.println("Sum: " + sumOfNaturalNumbers(n));
+    }
+    
+    public static int sumOfNaturalNumbers(int n) {
+        if (n == 1) return 1; // Base case
+        return n + sumOfNaturalNumbers(n - 1);
+    }
+}
+```
+
+---
+
+### Question 22: Write a program to add Two Matrices using Multi-dimensional Array
+```java
+// Add Two Matrices
+public class Main {
+    public static void main(String[] args) {
+        int[][] mat1 = {{1, 2, 3}, {4, 5, 6}};
+        int[][] mat2 = {{7, 8, 9}, {1, 2, 3}};
+        int rows = mat1.length, cols = mat1[0].length;
+        int[][] sum = new int[rows][cols];
+        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                sum[i][j] = mat1[i][j] + mat2[i][j];
+            }
+        }
+        
+        for (int[] row : sum) {
+            for (int val : row) System.out.print(val + " ");
+            System.out.println();
+        }
+    }
+}
+```
+
+---
+
+### Question 23: Write a program to find the sum of Natural Numbers using Recursion
+(Repeated question, same as Q21)
+
+---
+
+### Question 24: Write code to check if a String is palindrome or not
+```java
+// Check if String is Palindrome
+public class Main {
+    public static void main(String[] args) {
+        String str = "madam";
+        System.out.println(isPalindrome(str) ? "Palindrome" : "Not a Palindrome");
+    }
+    
+    public static boolean isPalindrome(String str) {
+        int left = 0, right = str.length() - 1;
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) return false;
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
+```
+
+---
+
+### Question 25: Write a program for Binary to Decimal conversion
+```java
+// Binary to Decimal Conversion
+public class Main {
+    public static void main(String[] args) {
+        String binary = "1011";
+        int decimal = 0;
+        for (int i = 0; i < binary.length(); i++) {
+            decimal = decimal * 2 + (binary.charAt(i) - '0');
+        }
+        System.out.println("Decimal: " + decimal);
+    }
+}
+```
+
+---
+
+### Question 26: Write a program to check whether a character is a vowel or consonant
+```java
+// Check if Character is Vowel or Consonant
+public class Main {
+    public static void main(String[] args) {
+        char c = 'e';
+        if ("AEIOUaeiou".indexOf(c) != -1) {
+            System.out.println(c + " is a Vowel");
+        } else {
+            System.out.println(c + " is a Consonant");
+        }
+    }
+}
+```
+
+---
+
+### Question 27: Write a code to find an Automorphic number
+```java
+// Check Automorphic Number
+public class Main {
+    public static void main(String[] args) {
+        int num = 25;
+        int square = num * num;
+        
+        if (String.valueOf(square).endsWith(String.valueOf(num))) {
+            System.out.println(num + " is an Automorphic Number");
+        } else {
+            System.out.println(num + " is not an Automorphic Number");
+        }
+    }
+}
+```
+
+---
+
+### Question 28: Write a code to Find the ASCII value of a character
+```java
+// Find ASCII Value of a Character
+public class Main {
+    public static void main(String[] args) {
+        char c = 'A';
+        System.out.println("ASCII value of " + c + " is: " + (int) c);
+    }
+}
+```
+
+---
+
+### Question 29: Write a code to Remove all characters from a string except alphabets
+```java
+// Remove all characters except alphabets
+public class Main {
+    public static void main(String[] args) {
+        String str = "abc123!@#XYZ";
+        String result = str.replaceAll("[^a-zA-Z]", "");
+        System.out.println("Result: " + result);
+    }
+}
+```
+
+---
+
+### Question 30: Write a code to Print the smallest element of the array
+```java
+// Find the Smallest Element in an Array
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 9, 1, 6};
+        int smallest = arr[0];
+        
+        for (int num : arr) {
+            if (num < smallest) smallest = num;
+        }
+        
+        System.out.println("Smallest Element: " + smallest);
+    }
+}
+```
+
+---
+
+### Question 31: Write a code to Reverse the elements of the array
+```java
+// Reverse Array Elements
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int left = 0, right = arr.length - 1;
+        
+        while (left < right) {
+            int temp = arr[left];
+            arr[left++] = arr[right];
+            arr[right--] = temp;
+        }
+        
+        for (int num : arr) System.out.print(num + " ");
+    }
+}
+```
+
+---
+
+### Question 32: Write a code to Sort the elements of the array
+```java
+// Sort Array Elements
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 8, 1, 3};
+        Arrays.sort(arr);
+        for (int num : arr) System.out.print(num + " ");
+    }
+}
+```
+
+---
+
+### Question 33: Write a code to Sort the elements of the array without `sort` method
+```java
+// Sort Array Without sort() Method (Bubble Sort)
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 8, 1, 3};
+        
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        
+        for (int num : arr) System.out.print(num + " ");
+    }
+}
+```
+
+---
+
+### Question 34: Write a code to Replace a Substring in a string
+```java
+// Replace Substring in String
+public class Main {
+    public static void main(String[] args) {
+        String str = "Hello World!";
+        String result = str.replace("World", "Java");
+        System.out.println(result);
+    }
+}
+```
+
+---
+
+### Question 35: Write a code to Remove space from a string
+```java
+// Remove Spaces from String
+public class Main {
+    public static void main(String[] args) {
+        String str = "Hello World!";
+        String result = str.replaceAll("\\s", "");
+        System.out.println(result);
+    }
+}
+```
+
+---
+
+### Question 36: Write a code to Count Inversions
+```java
+// Count Inversions
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {8, 4, 2, 1};
+        int count = 0;
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) count++;
+            }
+        }
+
+        System.out.println("Inversions: " + count);
+    }
+}
+```
+
+---
+
+### Question 37: Write a code to find consecutive largest subsequence
+```java
+// Find Consecutive Largest Subsequence
+import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 9, 3, 10, 2, 20};
+        HashSet<Integer> set = new HashSet<>();
+        int maxLen = 0;
+
+        for (int num : arr) set.add(num);
+
+        for (int num : arr) {
+            if (!set.contains(num - 1)) {
+                int currNum = num;
+                int currLen = 1;
+
+                while (set.contains(currNum + 1)) {
+                    currNum++;
+                    currLen++;
+                }
+
+                maxLen = Math.max(maxLen, currLen);
+            }
+        }
+
+        System.out.println("Longest Consecutive Sequence Length: " + maxLen);
+    }
+}
+```
+
+---
+
+### Question 38: Write a Program to Find out the Sum of Digits of a Number
+```java
+// Sum of Digits of a Number
+public class Main {
+    public static void main(String[] args) {
+        int num = 1234, sum = 0;
+
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+
+        System.out.println("Sum of Digits: " + sum);
+    }
+}
+```
+
+---
+
+### Question 39: Write a Program to Find out the Power of a Number
+```java
+// Power of a Number
+public class Main {
+    public static void main(String[] args) {
+        int base = 2, exp = 3;
+        int result = 1;
+
+        while (exp > 0) {
+            result *= base;
+            exp--;
+        }
+
+        System.out.println("Power: " + result);
+    }
+}
+```
+
+---
+
+### Question 40: Write a Program to Find out the Sum of Digits of a Number
+(Repeated question, same as Q38)
+
+---
+
+### Question 41: Write a Program to Add Two Fractions
+```java
+// Add Two Fractions
+public class Main {
+    public static void main(String[] args) {
+        int num1 = 1, den1 = 2; // Fraction 1: 1/2
+        int num2 = 3, den2 = 4; // Fraction 2: 3/4
+
+        int lcm = (den1 * den2) / gcd(den1, den2);
+        int numerator = (num1 * (lcm / den1)) + (num2 * (lcm / den2));
+        int gcd = gcd(numerator, lcm);
+
+        System.out.println("Sum: " + (numerator / gcd) + "/" + (lcm / gcd));
+    }
+
+    public static int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
+---
+
+### Question 42: Write a Program to Find the Largest Element in an Array
+```java
+// Find Largest Element in Array
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 4, 6, 8, 3};
+        int max = arr[0];
+
+        for (int num : arr) {
+            if (num > max) max = num;
+        }
+
+        System.out.println("Largest Element: " + max);
+    }
+}
+```
+
+---
+
+### Question 43: Write a Program to Find the Roots of a Quadratic Equation
+```java
+// Find Roots of Quadratic Equation
+public class Main {
+    public static void main(String[] args) {
+        double a = 1, b = -7, c = 12; // Equation: x^2 - 7x + 12 = 0
+        double discriminant = b * b - 4 * a * c;
+
+        if (discriminant >= 0) {
+            double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            System.out.println("Roots: " + root1 + ", " + root2);
+        } else {
+            System.out.println("No Real Roots");
+        }
+    }
+}
+```
+
+---
+
+### Question 44: Write a Program to Find the Prime Factors of a Number
+```java
+// Find Prime Factors
+public class Main {
+    public static void main(String[] args) {
+        int num = 56;
+
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            while (num % i == 0) {
+                System.out.print(i + " ");
+                num /= i;
+            }
+        }
+
+        if (num > 1) System.out.print(num); // If num is still a prime number
+    }
+}
+```
+
+---
+
+### Question 45: Write a Program to Convert Digits to Words
+```java
+// Convert Digits to Words
+public class Main {
+    public static void main(String[] args) {
+        int num = 123;
+        String[] words = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+
+        String result = "";
+        while (num > 0) {
+            result = words[num % 10] + " " + result;
+            num /= 10;
+        }
+
+        System.out.println("In Words: " + result.trim());
+    }
+}
+```
+
+---
+
+### Question 46: Write a Program to Find the Factorial of a Number using Recursion
+```java
+// Factorial Using Recursion
+public class Main {
+    public static void main(String[] args) {
+        int num = 5;
+        System.out.println("Factorial: " + factorial(num));
+    }
+
+    public static int factorial(int n) {
+        return (n == 0) ? 1 : n * factorial(n - 1);
+    }
+}
+```
+
+---
+
+### Question 47: Write a Program to Reverse an Array
+```java
+// Reverse an Array
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int left = 0, right = arr.length - 1;
+
+        while (left < right) {
+            int temp = arr[left];
+            arr[left++] = arr[right];
+            arr[right--] = temp;
+        }
+
+        for (int num : arr) System.out.print(num + " ");
+    }
+}
+```
+
+---
+
+### Question 48: Write code to check if two strings match where one string contains wildcard characters
+```java
+// Match Strings with Wildcards
+public class Main {
+    public static void main(String[] args) {
+        String str = "abcd";
+        String pattern = "a*cd";
+
+        System.out.println(isMatch(str, pattern));
+    }
+
+    public static boolean isMatch(String str, String pattern) {
+        int s = 0, p = 0, starIdx = -1, match = 0;
+
+        while (s < str.length()) {
+            if (p < pattern.length() && (pattern.charAt(p) == '?' || pattern.charAt(p) == str.charAt(s))) {
+                s++;
+                p++;
+            } else if (p < pattern.length() && pattern.charAt(p) == '*') {
+                starIdx = p++;
+                match = s;
+            } else if (starIdx != -1) {
+                p = starIdx + 1;
+                s = ++match;
+            } else {
+                return false;
+            }
+        }
+
+        while (p < pattern.length() && pattern.charAt(p) == '*') p++;
+
+        return p == pattern.length();
+    }
+}
+```
+
+---
+
+### Question 49: Write a Program to Find the Spiral Traversal of a Matrix
+```java
+// Spiral Traversal of a Matrix
+public class Main {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 10, 11, 12},
+            {13, 14, 15, 16}
+        };
+
+        spiralTraversal(matrix);
+    }
+
+    public static void spiralTraversal(int[][] matrix) {
+        int top = 0, bottom = matrix.length - 1;
+        int left = 0, right = matrix[0].length - 1;
+
+        while (top <= bottom && left <= right) {
+            // Traverse from left to right
+            for (int i = left; i <= right; i++) {
+                System.out.print(matrix[top][i] + " ");
+            }
+            top++;
+
+            // Traverse from top to bottom
+            for (int i = top; i <= bottom; i++) {
+                System.out.print(matrix[i][right] + " ");
+            }
+            right--;
+
+            // Traverse from right to left
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--) {
+                    System.out.print(matrix[bottom][i] + " ");
+                }
+                bottom--;
+            }
+
+            // Traverse from bottom to top
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    System.out.print(matrix[i][left] + " ");
+                }
+                left++;
+            }
+        }
+    }
+}
+```
+
+---
+
+### Question 50: Write a Program to Find Fibonacci Series using Recursion
+```java
+// Fibonacci Series Using Recursion
+public class Main {
+    public static void main(String[] args) {
+        int n = 10;
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+    }
+
+    public static int fibonacci(int n) {
+        if (n <= 1) return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
 
 $$
 \Large \text{End Of File}
