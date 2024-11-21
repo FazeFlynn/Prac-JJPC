@@ -3277,95 +3277,88 @@ public class Main {
 
 # Other Question Compilations
 
-#### Q.1: You are given a list of intervals where each interval is represented as [start, end]. Write a method that finds the maximum number of non-overlapping intervals that can be attended.
+#### Q.1: You are given a list of intervals where each interval is represented as [`start`, `end`]. Write a method that finds the maximum number of non-overlapping intervals that can be attended.
 
 ```java
-import java.util.Scanner;
-
-public class MaximumEvents {
-    public static int maxNonOverlappingIntervals(int[][] intervals) {
-        if (intervals == null || intervals.length == 0) {
-            return 0;
-        }
-
-        // Sort intervals by their end times
-        java.util.Arrays.sort(intervals, (a, b) -> Integer.compare(a[1], b[1]));
-
-        int count = 0;
-        int lastEnd = Integer.MIN_VALUE;
-
-        for (int[] interval : intervals) {
-            if (interval[0] >= lastEnd) {
-                count++;
-                lastEnd = interval[1];
-            }
-        }
-
-        return count;
+public static int maxNonOverlappingIntervals(int[][] intervals) {
+    if (intervals == null || intervals.length == 0) {
+        return 0;
     }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Read the number of intervals
-        int n = scanner.nextInt();
-        int[][] intervals = new int[n][2];
-
-        for (int i = 0; i < n; i++) {
-            intervals[i][0] = scanner.nextInt();
-            intervals[i][1] = scanner.nextInt();
+    // Sort intervals by their end times
+    java.util.Arrays.sort(intervals, (a, b) -> Integer.compare(a[1], b[1]));
+    int count = 0;
+    int lastEnd = Integer.MIN_VALUE;
+    for (int[] interval : intervals) {
+        if (interval[0] >= lastEnd) {
+            count++;
+            lastEnd = interval[1];
         }
-
-        System.out.println(maxNonOverlappingIntervals(intervals));
     }
-}
+    return count;
+} 
+int[][] interval = {{1,2},{6,8},{4,7},{3,6},{5,7}};
+maxNonOverlappingIntervals(interval); // 3
 ```
 
 #### Q.2: You are given an array of integers. For each element in the array, find the next greater element to the right. If no such element exists, output -1 for that elements.
 
+`optimized approach using stacks - easy, just focus`
+
 ```java
-import java.util.Scanner;
+import java.util.Stack;
+int[] nextGreaterElement(int[] nums){
 
-public class NextGreaterElement {
-    public static int[] nextGreaterElement(int[] nums) {
-        int[] result = new int[nums.length];
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+    int[] result = new int[nums.length];
+    Stack<Integer> stack = new Stack<>();
 
-        for (int i = nums.length - 1; i >= 0; i--) {
-            while (!stack.isEmpty() && stack.peek() <= nums[i]) {
-                stack.pop();
-            }
-
-            result[i] = stack.isEmpty() ? -1 : stack.peek();
-            stack.push(nums[i]);
+    for(int i = nums.length - 1; i >= 0; i--) {
+        while(!stack.isEmpty() && stack.peek() <= nums[i]){
+            stack.pop();
         }
 
-        return result;
+        result[i] = stack.isEmpty() ? -1 : stack.peek();
+        stack.push(nums[i]);
     }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Read the size of the array
-        int n = scanner.nextInt();
-        int[] nums = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            nums[i] = scanner.nextInt();
-        }
-
-        int[] result = nextGreaterElement(nums);
-        for (int i = 0; i < result.length; i++) {
-            if (i > 0) {
-                System.out.print(" ");
-            }
-            System.out.print(result[i]);
-        }
-        System.out.println();
-    }
+    return result;
 }
+
+int[] arr = {4, 5, 2, 10, 8};
+Arrays.toString(nextGreaterElement(arr));
 ```
 
+`my solution - a little unefficient but works`
+
+```java
+int[] nextGreaterElement(int[] nums) {
+    int[] result = new int[nums.length];
+    int index= 0;
+    boolean found;
+
+    for(int i = 0; i < nums.length - 1; i++) {
+        found = false;
+        for(int j = i+1; j < nums.length; j++) {
+            if(nums[j] > nums[i]){
+                result[index++] = nums[j];
+                found = true;
+                break;
+            }            
+        }
+
+        if(!found){
+            result[index++] = -1;
+        }         
+    }
+
+    while(index < nums.length){
+        result[index++] = -1;
+    }
+
+    return result;
+}
+
+int[] arr = {4, 5, 2, 10, 8};
+Arrays.toString(nextGreaterElement(arr));
+```
 
 
 
