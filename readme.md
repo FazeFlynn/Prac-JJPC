@@ -3465,8 +3465,549 @@ public class Main {
         }
     }
 }
+```
 
 
+# Imp Methods of Collection Framework
+
+## List
+
+Here’s a list of **important methods in the Collection Framework** with a one-line explanation and a simple example for each.
+
+---
+
+### 1. **`add(E e)`**
+Adds an element to the collection.
+```java
+List<Integer> list = new ArrayList<>();
+list.add(10); // Adds 10 to the list
+```
+
+---
+
+### 2. **`addAll(Collection<? extends E> c)`**
+Adds all elements from another collection.
+```java
+List<Integer> list = new ArrayList<>();
+list.addAll(List.of(1, 2, 3)); // Adds 1, 2, 3 to the list
+```
+
+---
+
+### 3. **`remove(Object o)`**
+Removes a specific element from the collection.
+```java
+List<String> list = new ArrayList<>(List.of("A", "B", "C"));
+list.remove("B"); // Removes "B" from the list
+```
+
+---
+
+### 4. **`removeAll(Collection<?> c)`**
+Removes all elements present in another collection.
+```java
+List<Integer> list = new ArrayList<>(List.of(1, 2, 3, 4));
+list.removeAll(List.of(2, 3)); // Removes 2 and 3
+```
+
+---
+
+### 5. **`contains(Object o)`**
+Checks if the collection contains a specific element.
+```java
+List<String> list = new ArrayList<>(List.of("A", "B", "C"));
+boolean exists = list.contains("B"); // Returns true
+```
+
+---
+
+### 6. **`containsAll(Collection<?> c)`**
+Checks if the collection contains all elements from another collection.
+```java
+List<Integer> list = new ArrayList<>(List.of(1, 2, 3, 4));
+boolean exists = list.containsAll(List.of(2, 3)); // Returns true
+```
+
+---
+
+### 7. **`isEmpty()`**
+Checks if the collection is empty.
+```java
+List<Integer> list = new ArrayList<>();
+boolean empty = list.isEmpty(); // Returns true
+```
+
+---
+
+### 8. **`size()`**
+Returns the number of elements in the collection.
+```java
+List<String> list = new ArrayList<>(List.of("A", "B"));
+int size = list.size(); // Returns 2
+```
+
+---
+
+### 9. **`clear()`**
+Removes all elements from the collection.
+```java
+List<Integer> list = new ArrayList<>(List.of(1, 2, 3));
+list.clear(); // Clears the list
+```
+
+---
+
+### 10. **`toArray()`**
+Converts the collection to an array.
+```java
+List<String> list = new ArrayList<>(List.of("A", "B"));
+Object[] arr = list.toArray(); // Converts to ["A", "B"]
+```
+
+---
+
+### 11. **`iterator()`**
+Returns an iterator for traversing the collection.
+```java
+List<Integer> list = List.of(1, 2, 3);
+Iterator<Integer> it = list.iterator();
+while (it.hasNext()) {
+    System.out.println(it.next());
+}
+```
+
+---
+
+### 12. **`forEach(Consumer<? super T> action)`**
+Performs an action for each element in the collection.
+```java
+List<Integer> list = List.of(1, 2, 3);
+list.forEach(System.out::println); // Prints each element
+```
+
+---
+
+### 13. **`retainAll(Collection<?> c)`**
+Retains only elements also present in another collection.
+```java
+List<Integer> list = new ArrayList<>(List.of(1, 2, 3, 4));
+list.retainAll(List.of(2, 3)); // Retains 2 and 3
+```
+
+---
+
+### 14. **`hashCode()`**
+Returns the hash code of the collection.
+```java
+List<String> list = new ArrayList<>(List.of("A", "B"));
+int hash = list.hashCode(); // Returns hash code
+```
+
+---
+
+### 15. **`equals(Object o)`**
+Checks if the collection is equal to another object.
+```java
+List<Integer> list1 = List.of(1, 2, 3);
+List<Integer> list2 = List.of(1, 2, 3);
+boolean isEqual = list1.equals(list2); // Returns true
+```
+
+---
+
+### 16. **`stream()`**
+Returns a stream for the collection.
+```java
+List<Integer> list = List.of(1, 2, 3);
+list.stream().forEach(System.out::println); // Streams elements
+```
+
+---
+
+### 17. **`parallelStream()`**
+Returns a parallel stream for the collection.
+```java
+List<Integer> list = List.of(1, 2, 3);
+list.parallelStream().forEach(System.out::println); // Streams elements in parallel
+```
+
+---
+
+### 18. **`sort(Comparator<? super T> c)`**
+Sorts elements based on a comparator.
+```java
+List<Integer> list = new ArrayList<>(List.of(3, 1, 2));
+list.sort(Integer::compareTo); // Sorts to [1, 2, 3]
+```
+
+---
+
+### 19. **`replaceAll(UnaryOperator<E> operator)`**
+Replaces all elements using a specified operator.
+```java
+List<Integer> list = new ArrayList<>(List.of(1, 2, 3));
+list.replaceAll(x -> x * 2); // Multiplies each element by 2
+```
+
+---
+
+### 20. **`subList(int fromIndex, int toIndex)`**
+Returns a view of the portion of the list.
+```java
+List<Integer> list = List.of(1, 2, 3, 4);
+List<Integer> subList = list.subList(1, 3); // Returns [2, 3]
+```
+
+--- 
+
+
+
+Here’s a list of **important methods of `HashMap`** in Java with one-line explanations and simple examples:
+
+---
+
+### 1. **`put(K key, V value)`**
+Adds a key-value pair to the map or updates the value if the key exists.
+```java
+HashMap<Integer, String> map = new HashMap<>();
+map.put(1, "A"); // Adds key 1 with value "A"
+```
+
+---
+
+### 2. **`get(Object key)`**
+Retrieves the value associated with the specified key.
+```java
+String value = map.get(1); // Returns "A"
+```
+
+---
+
+### 3. **`getOrDefault(Object key, V defaultValue)`**
+Returns the value for the key or the default value if the key is not present.
+```java
+String value = map.getOrDefault(2, "Default"); // Returns "Default"
+```
+
+---
+
+### 4. **`containsKey(Object key)`**
+Checks if the map contains the specified key.
+```java
+boolean exists = map.containsKey(1); // Returns true
+```
+
+---
+
+### 5. **`containsValue(Object value)`**
+Checks if the map contains the specified value.
+```java
+boolean exists = map.containsValue("A"); // Returns true
+```
+
+---
+
+### 6. **`remove(Object key)`**
+Removes the mapping for the specified key.
+```java
+map.remove(1); // Removes key 1 and its value
+```
+
+---
+
+### 7. **`remove(Object key, Object value)`**
+Removes the entry if the key is mapped to the specified value.
+```java
+map.put(1, "A");
+map.remove(1, "A"); // Removes key 1 only if its value is "A"
+```
+
+---
+
+### 8. **`putIfAbsent(K key, V value)`**
+Inserts the key-value pair if the key is not already mapped.
+```java
+map.putIfAbsent(2, "B"); // Adds key 2 with value "B" if not present
+```
+
+---
+
+### 9. **`replace(K key, V value)`**
+Replaces the value for the specified key if it exists.
+```java
+map.replace(2, "C"); // Updates key 2's value to "C"
+```
+
+---
+
+### 10. **`replace(K key, V oldValue, V newValue)`**
+Replaces the value if the key maps to the old value.
+```java
+map.replace(2, "C", "D"); // Changes value from "C" to "D" for key 2
+```
+
+---
+
+### 11. **`size()`**
+Returns the number of key-value mappings in the map.
+```java
+int size = map.size(); // Returns 1
+```
+
+---
+
+### 12. **`isEmpty()`**
+Checks if the map is empty.
+```java
+boolean empty = map.isEmpty(); // Returns false
+```
+
+---
+
+### 13. **`clear()`**
+Removes all key-value pairs from the map.
+```java
+map.clear(); // Empties the map
+```
+
+---
+
+### 14. **`keySet()`**
+Returns a `Set` view of all keys in the map.
+```java
+Set<Integer> keys = map.keySet(); // Returns [2]
+```
+
+---
+
+### 15. **`values()`**
+Returns a `Collection` view of all values in the map.
+```java
+Collection<String> values = map.values(); // Returns ["D"]
+```
+
+---
+
+### 16. **`entrySet()`**
+Returns a `Set` view of all key-value pairs.
+```java
+Set<Map.Entry<Integer, String>> entries = map.entrySet();
+// Returns [(2=D)]
+```
+
+---
+
+### 17. **`forEach(BiConsumer<? super K, ? super V> action)`**
+Performs the given action for each key-value pair.
+```java
+map.forEach((key, value) -> System.out.println(key + ": " + value));
+```
+
+---
+
+### 18. **`merge(K key, V value, BiFunction<? super V, ? super V, ? extends V> remappingFunction)`**
+Combines the existing value with the given value using a remapping function.
+```java
+map.merge(2, "E", (oldVal, newVal) -> oldVal + newVal); // Updates key 2 to "DE"
+```
+
+---
+
+### 19. **`compute(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction)`**
+Computes a new value for the key using a remapping function.
+```java
+map.compute(2, (key, val) -> val + "F"); // Updates key 2 to "DEF"
+```
+
+---
+
+### 20. **`computeIfAbsent(K key, Function<? super K, ? extends V> mappingFunction)`**
+Computes a value if the key is not already mapped.
+```java
+map.computeIfAbsent(3, k -> "New"); // Adds key 3 with value "New"
+```
+
+---
+
+### 21. **`computeIfPresent(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction)`**
+Computes a new value for an existing key using a remapping function.
+```java
+map.computeIfPresent(2, (key, val) -> val + "G"); // Updates key 2 to "DEFG"
+```
+
+---
+
+These methods are crucial for working with `HashMap` effectively in Java.
+
+
+
+---
+
+Here’s a list of **important methods of the `Set` interface** in Java's Collection Framework with explanations and simple examples:
+
+---
+
+### 1. **`add(E e)`**
+Adds the specified element to the set if it is not already present.
+```java
+Set<Integer> set = new HashSet<>();
+set.add(1); // Adds 1 to the set
+set.add(2); // Adds 2 to the set
+```
+
+---
+
+### 2. **`addAll(Collection<? extends E> c)`**
+Adds all the elements from the specified collection to the set.
+```java
+Set<Integer> set = new HashSet<>();
+set.addAll(Arrays.asList(1, 2, 3)); // Adds 1, 2, 3 to the set
+```
+
+---
+
+### 3. **`remove(Object o)`**
+Removes the specified element from the set if it exists.
+```java
+set.remove(2); // Removes 2 from the set
+```
+
+---
+
+### 4. **`clear()`**
+Removes all elements from the set.
+```java
+set.clear(); // Clears all elements from the set
+```
+
+---
+
+### 5. **`contains(Object o)`**
+Checks if the set contains the specified element.
+```java
+boolean exists = set.contains(1); // Returns true if 1 is in the set
+```
+
+---
+
+### 6. **`isEmpty()`**
+Checks if the set is empty.
+```java
+boolean empty = set.isEmpty(); // Returns true if the set is empty
+```
+
+---
+
+### 7. **`size()`**
+Returns the number of elements in the set.
+```java
+int size = set.size(); // Returns the size of the set
+```
+
+---
+
+### 8. **`iterator()`**
+Returns an iterator to traverse the elements of the set.
+```java
+Iterator<Integer> iterator = set.iterator();
+while (iterator.hasNext()) {
+    System.out.println(iterator.next()); // Prints each element
+}
+```
+
+---
+
+### 9. **`toArray()`**
+Converts the set into an array.
+```java
+Object[] array = set.toArray(); // Converts set to an Object array
+```
+
+---
+
+### 10. **`toArray(T[] a)`**
+Converts the set into an array of the specified type.
+```java
+Integer[] array = set.toArray(new Integer[0]); // Converts set to an Integer array
+```
+
+---
+
+### 11. **`retainAll(Collection<?> c)`**
+Retains only the elements in the set that are present in the specified collection.
+```java
+set.retainAll(Arrays.asList(1, 3)); // Keeps only 1 and 3 in the set
+```
+
+---
+
+### 12. **`removeAll(Collection<?> c)`**
+Removes all elements from the set that are present in the specified collection.
+```java
+set.removeAll(Arrays.asList(1, 3)); // Removes 1 and 3 from the set
+```
+
+---
+
+### 13. **`containsAll(Collection<?> c)`**
+Checks if the set contains all elements from the specified collection.
+```java
+boolean allExist = set.containsAll(Arrays.asList(1, 2)); // Returns true if all exist
+```
+
+---
+
+### 14. **`forEach(Consumer<? super E> action)`**
+Performs the given action for each element in the set.
+```java
+set.forEach(System.out::println); // Prints each element in the set
+```
+
+---
+
+### 15. **`stream()`**
+Returns a stream for the set, allowing for functional operations.
+```java
+set.stream().forEach(System.out::println); // Prints elements using a stream
+```
+
+---
+
+### 16. **`parallelStream()`**
+Returns a parallel stream for the set.
+```java
+set.parallelStream().forEach(System.out::println); // Prints elements in parallel
+```
+
+---
+
+### 17. **`equals(Object o)`**
+Compares the set with another object for equality.
+```java
+Set<Integer> anotherSet = new HashSet<>(Arrays.asList(1, 2, 3));
+boolean isEqual = set.equals(anotherSet); // Returns true if both sets are equal
+```
+
+---
+
+### 18. **`hashCode()`**
+Returns the hash code value for the set.
+```java
+int hash = set.hashCode(); // Returns the hash code of the set
+```
+
+---
+
+### 19. **`spliterator()`**
+Creates a spliterator for traversing elements in the set.
+```java
+Spliterator<Integer> spliterator = set.spliterator();
+spliterator.forEachRemaining(System.out::println); // Prints all elements
+```
+
+---
+
+These methods work for all types of `Set` implementations, such as `HashSet`, `LinkedHashSet`, and `TreeSet`.
 
 
 
