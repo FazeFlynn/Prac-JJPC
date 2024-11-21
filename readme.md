@@ -3290,3 +3290,183 @@ public class Main {
 $$
 \Large \text{End Of File}
 $$
+
+
+## To add
+```java
+String result = str.replace(toReplace, replacement);
+
+for (Map.Entry<Character, Integer> entry : charCount.entrySet()) {
+            if (entry.getValue() == 1) {
+                System.out.print(entry.getKey() + " ");
+            }
+        }
+
+  int[] sortedArr = arr.clone();
+
+
+int digits = String.valueOf(num).length();
+
+
+Math.pow(digit, digits);
+
+
+
+// Binary to Decimal Conversion
+public class Main {
+    public static void main(String[] args) {
+        String binary = "1011";
+        int decimal = 0;
+        for (int i = 0; i < binary.length(); i++) {
+            decimal = decimal * 2 + (binary.charAt(i) - '0');
+        }
+        System.out.println("Decimal: " + decimal);
+    }
+}
+
+
+//consonent or vowel check
+char c = 'e';
+if ("AEIOUaeiou".indexOf(c) != -1) {
+    System.out.println(c + " is a Vowel");
+} else {
+    System.out.println(c + " is a Consonant");
+}
+
+
+String str = "abc123!@#XYZ";
+String result = str.replaceAll("[^a-zA-Z]", "");
+
+
+String str = "Hello World!";
+String result = str.replaceAll("\\s", "");
+
+    
+    
+
+public static int gcd(int a, int b) {
+    return b == 0 ? a : gcd(b, a % b);
+}
+
+
+
+
+
+// Add Two Fractions
+public class Main {
+    public static void main(String[] args) {
+        int num1 = 1, den1 = 2; // Fraction 1: 1/2
+        int num2 = 3, den2 = 4; // Fraction 2: 3/4
+
+        int lcm = (den1 * den2) / gcd(den1, den2);
+        int numerator = (num1 * (lcm / den1)) + (num2 * (lcm / den2));
+        int gcd = gcd(numerator, lcm);
+
+        System.out.println("Sum: " + (numerator / gcd) + "/" + (lcm / gcd));
+    }
+
+    public static int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+
+
+
+
+// Find Roots of Quadratic Equation
+public class Main {
+    public static void main(String[] args) {
+        double a = 1, b = -7, c = 12; // Equation: x^2 - 7x + 12 = 0
+        double discriminant = b * b - 4 * a * c;
+
+        if (discriminant >= 0) {
+            double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            System.out.println("Roots: " + root1 + ", " + root2);
+        } else {
+            System.out.println("No Real Roots");
+        }
+    }
+}
+
+
+// Find Prime Factors
+public class Main {
+    public static void main(String[] args) {
+        int num = 56;
+
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            while (num % i == 0) {
+                System.out.print(i + " ");
+                num /= i;
+            }
+        }
+
+        if (num > 1) System.out.print(num); // If num is still a prime number
+    }
+}
+
+
+
+
+return (n == 0) ? 1 : n * factorial(n - 1);
+
+
+
+
+
+
+
+// Spiral Traversal of a Matrix
+public class Main {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 10, 11, 12},
+            {13, 14, 15, 16}
+        };
+
+        spiralTraversal(matrix);
+    }
+
+    public static void spiralTraversal(int[][] matrix) {
+        int top = 0, bottom = matrix.length - 1;
+        int left = 0, right = matrix[0].length - 1;
+
+        while (top <= bottom && left <= right) {
+            // Traverse from left to right
+            for (int i = left; i <= right; i++) {
+                System.out.print(matrix[top][i] + " ");
+            }
+            top++;
+
+            // Traverse from top to bottom
+            for (int i = top; i <= bottom; i++) {
+                System.out.print(matrix[i][right] + " ");
+            }
+            right--;
+
+            // Traverse from right to left
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--) {
+                    System.out.print(matrix[bottom][i] + " ");
+                }
+                bottom--;
+            }
+
+            // Traverse from bottom to top
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    System.out.print(matrix[i][left] + " ");
+                }
+                left++;
+            }
+        }
+    }
+}
+
+
+
+
+
