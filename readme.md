@@ -3273,6 +3273,107 @@ public class Main {
 }
 ```
 
+---
+
+# Other Question Compilations
+
+#### Q.1: You are given a list of intervals where each interval is represented as [start, end]. Write a method that finds the maximum number of non-overlapping intervals that can be attended.
+
+```java
+import java.util.Scanner;
+
+public class MaximumEvents {
+    public static int maxNonOverlappingIntervals(int[][] intervals) {
+        if (intervals == null || intervals.length == 0) {
+            return 0;
+        }
+
+        // Sort intervals by their end times
+        java.util.Arrays.sort(intervals, (a, b) -> Integer.compare(a[1], b[1]));
+
+        int count = 0;
+        int lastEnd = Integer.MIN_VALUE;
+
+        for (int[] interval : intervals) {
+            if (interval[0] >= lastEnd) {
+                count++;
+                lastEnd = interval[1];
+            }
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the number of intervals
+        int n = scanner.nextInt();
+        int[][] intervals = new int[n][2];
+
+        for (int i = 0; i < n; i++) {
+            intervals[i][0] = scanner.nextInt();
+            intervals[i][1] = scanner.nextInt();
+        }
+
+        System.out.println(maxNonOverlappingIntervals(intervals));
+    }
+}
+```
+
+#### Q.2: You are given an array of integers. For each element in the array, find the next greater element to the right. If no such element exists, output -1 for that elements.
+
+```java
+import java.util.Scanner;
+
+public class NextGreaterElement {
+    public static int[] nextGreaterElement(int[] nums) {
+        int[] result = new int[nums.length];
+        java.util.Stack<Integer> stack = new java.util.Stack<>();
+
+        for (int i = nums.length - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && stack.peek() <= nums[i]) {
+                stack.pop();
+            }
+
+            result[i] = stack.isEmpty() ? -1 : stack.peek();
+            stack.push(nums[i]);
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the size of the array
+        int n = scanner.nextInt();
+        int[] nums = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            nums[i] = scanner.nextInt();
+        }
+
+        int[] result = nextGreaterElement(nums);
+        for (int i = 0; i < result.length; i++) {
+            if (i > 0) {
+                System.out.print(" ");
+            }
+            System.out.print(result[i]);
+        }
+        System.out.println();
+    }
+}
+```
+
+
+
+
+
+
+
+---
+
 
 
 
@@ -3465,7 +3566,10 @@ public class Main {
         }
     }
 }
+
 ```
+
+
 
 
 # Imp Methods of Collection Framework
