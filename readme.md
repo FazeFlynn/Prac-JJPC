@@ -4108,3 +4108,44 @@ These methods work for all types of `Set` implementations, such as `HashSet`, `L
 
 
 
+$$
+\Large \text{End Of File}
+$$
+
+
+
+Q1. Which of these is not a feature of Java?
+
+Ans: Interpreted language
+
+Q2. Which component of Java is responsible for running the compiled Java bytecode?
+- Ans: JVM
+
+Q3. What is the purpose of the PATH environment variable in Java?
+
+`Ans`: To locate the Java compiler
+
+Q4. Which feature of Java makes it possible to run a Java program on different platforms?
+
+- Ans: Platform-Independent
+
+Q5. In Java, how should class names be written?
+Ans: PascalCase
+
+Q6. Which of these is a single-line comment in Java?
+`Ans`: //
+
+Q7. Which data type would be best for storing a person's age in Java?
+
+`Ans: int`
+
+```
+Q8. What is the default value of a boolean variable in Java?
+Ans: false
+
+Q9. What is the result of this operation in Java: (int)(7.9)?
+Ans: 7
+
+Q10. Which keyword is used to define a constant variable in Java?
+Ans: final
+```
