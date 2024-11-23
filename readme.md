@@ -4108,44 +4108,546 @@ These methods work for all types of `Set` implementations, such as `HashSet`, `L
 
 
 
+
+
+
+---
+
+# MCQs
+
+```plaintext
+
+Q1. Which of these is not a feature of Java?  
+Ans: Interpreted language  
+
+Q2. Which component of Java is responsible for running the compiled Java bytecode?  
+Ans: JVM  
+
+Q3. What is the purpose of the PATH environment variable in Java?  
+Ans: To locate the Java compiler  
+
+Q4. Which feature of Java makes it possible to run a Java program on different platforms?  
+Ans: Platform-Independent  
+
+Q5. In Java, how should class names be written?  
+Ans: PascalCase  
+
+Q6. Which of these is a single-line comment in Java?  
+Ans: //  
+
+Q7. Which data type would be best for storing a person's age in Java?  
+Ans: int  
+
+Q8. What is the default value of a boolean variable in Java?  
+Ans: false  
+
+Q9. What is the result of this operation in Java: (int)(7.9)?  
+Ans: 7  
+
+Q10. Which keyword is used to define a constant variable in Java?  
+Ans: final  
+
+Q11. What is the range of the short data type in Java?  
+Ans: -32768 to 32767  
+
+Q12. What will be the output of the following code snippet:  
+int a = 10; int b = 20; System.out.println(a + b);  
+Ans: 30  
+
+Q13. Identify the output of this code:  
+boolean isJavaFun = true; System.out.println(!isJavaFun);  
+Ans: false  
+
+Q14. What does the following Java code print?  
+int x = 5; int y = x++; System.out.println(y);  
+Ans: 5  
+
+Q15. What is the output of this pseudocode?  
+SET x = 10 IF x > 5 THEN PRINT "Greater" ELSE PRINT "Lesser"  
+Ans: Greater  
+
+Q16. Evaluate this pseudocode:  
+SET a = 3 SET b = 4 PRINT a * b  
+Ans: 12  
+
+Q17. Determine the output:  
+SET num = 8 IF num MOD 2 = 0 THEN PRINT "Even" ELSE PRINT "Odd"  
+Ans: Even  
+
+Q18. Identify the error in this code:  
+int[] nums = new int[2]; nums[0] = 1; nums[1] = 2; nums[2] = 3;  
+Ans: Array index out of bounds  
+
+Q19. Spot the mistake in this code snippet:  
+int i = 0; while(i < 10) { i++; } System.out.println(i);  
+Ans: No error  
+
+Q20. Which control structure is used to execute a block of code multiple times?  
+Ans: for  
+
+Q21. What will be the output of the following code snippet:  
+if(false){ System.out.println("True"); } else{ System.out.println("False"); }  
+Ans: False  
+
+Q22. In a 'switch-case' statement, what is the role of the 'break' keyword?  
+Ans: To terminate the case block  
+
+Q23. What is the difference between 'while' and 'do-while' loops in Java?  
+Ans: The 'do-while' loop executes at least once  
+
+Q24. Which keyword is used to exit a loop prematurely in Java?  
+Ans: break  
+
+Q25. What will the following loop print?  
+for(int i = 0; i < 3; i++){ System.out.println(i); }  
+Ans: 0 1 2  
+
+Q26. What is the output of this code?  
+int x = 1; while(x < 4){ System.out.println(x); x++; }  
+Ans: 1 2 3  
+
+Q27. What will this pseudocode output?  
+SET count = 5 DO PRINT count COUNTDOWN count  
+Ans: 5 4 3 2 1  
+
+Q28. Analyze this pseudocode:  
+SET num = 0 WHILE num <= 5 IF num MOD 2 = 0 THEN PRINT num END IF INCREMENT num  
+Ans: 0 2 4  
+
+Q29. Identify the error in this code:  
+for(int i=0; i<=5; i++) { System.out.println(i); } System.out.println(i);  
+Ans: Variable i not accessible outside loop  
+
+Q30. Spot the mistake:  
+int counter = 0; while(counter < 5){ counter++; } System.out.println("Count: " + counter);  
+Ans: No error  
+
+Q31. Find the error in this code:  
+int num = 1; do{ System.out.println(num); num++; } while(num <= 3); System.out.println(num);  
+Ans: No error  
+
+Q32. Which class is commonly used for simple keyboard input in Java?  
+Ans: Scanner  
+
+Q33. In Java, what is the default value of an array of integers?  
+Ans: 0  
+
+Q34. What does 'BufferedReader' in Java provide that 'Scanner' does not?  
+Ans: Faster input reading  
+
+Q35. How do you access the third element in an array named 'arr'?  
+Ans: arr[2]  
+
+Q36. What will happen if you try to access an index outside the bounds of an array in Java?  
+Ans: Runtime error: ArrayIndexOutOfBoundsException  
+
+Q37. What is the purpose of the 'length' attribute in a Java array?  
+Ans: To determine the size of the array  
+
+Q38. Which of these is not a valid way to instantiate an array in Java?  
+Ans: int arr[] = int[5];  
+
+Q39. In a multi-dimensional array, how do you access the element in the second row and third column of an array named 'matrix'?  
+Ans: matrix[1][2]  
+
+Q40. What will the following code output:  
+int[] arr = {1, 2, 3}; for(int num : arr) { System.out.println(num); }  
+Ans: 1 2 3  
+
+Q41. What does this Java code do?  
+int[][] arr = {{1, 2}, {3, 4}}; for(int i = 0; i < arr.length; i++) { for(int j = 0; j < arr[i].length; j++) { System.out.print(arr[i][j] + " "); } System.out.println(); }  
+Ans: Prints a 2D array in matrix form  
+
+Q42. What will be the result of executing this code snippet?  
+String[] names = {"Java", "Python", "C++"}; System.out.println(names[1].length());  
+Ans: 6  
+
+
+Q43. Analyze this code:  
+int[] nums = new int[3]; nums[1] = 10; int x = nums[1] + nums[0]; System.out.println(x);  
+Ans: 10  
+
+Q44. What will this pseudocode output?  
+SET arr = [1, 2, 3] FOR EACH num IN arr PRINT num  
+Ans: 1 2 3  
+
+Q45. Determine the output of this pseudocode:  
+SET arr = [10, 20, 30] SET sum = 0 FOR i = 0 TO LENGTH(arr) - 1 INCREMENT sum BY arr[i] PRINT sum  
+Ans: 60  
+
+Q46. What will be the result of this pseudocode?  
+SET matrix = [[1, 2], [3, 4]] PRINT matrix[0][1]  
+Ans: 2  
+
+Q47. Identify the issue in this code snippet:  
+int[] numbers = new int[5]; for(int i = 0; i <= numbers.length; i++) { System.out.println(numbers[i]); }  
+Ans: Out of bounds array access  
+
+Q48. Spot the mistake in this code:  
+String[] names = {"Java", "Python", "C"}; for(int i = 0; i < names.length; i++) { System.out.println(names[i].length()); }  
+Ans: No error  
+
+Q49. Find the error in this Java code:  
+int[][] matrix = new int[2][2]; matrix[0][0] = 1; matrix[0][1] = 2; matrix[1][0] = 3; System.out.println(matrix[1][1]);  
+Ans: Missing initialization for matrix[1][1]  
+
+Q50. Identify the flaw in this Java code:  
+char[] chars = new char[-1];  
+Ans: Negative array size  
+
+Q51. What is the primary feature of Object-Oriented Programming in Java?  
+Ans: Encapsulation  
+
+Q52. Which of these is not a principle of Object-Oriented Programming?  
+Ans: Compilation  
+
+Q53. What does 'inheritance' in Java imply?  
+Ans: A class shares structure and behaviors from another class  
+
+Q54. What is an instance variable in Java?  
+Ans: A variable defined outside of any method but inside a class  
+
+Q55. Which keyword is used for inheritance in Java?  
+Ans: extends  
+
+Q56. What is the purpose of a constructor in Java?  
+Ans: To initialize variables  
+
+Q57. In Java, how is a 'static' variable different from an 'instance' variable?  
+Ans: Static variables are shared across all instances of a class  
+
+Q58. What is polymorphism in Java?  
+Ans: The ability of a method to perform different tasks based on the context  
+
+Q59. What distinguishes an abstract class from a regular class in Java?  
+Ans: An abstract class cannot create objects  
+
+Q60. Which access modifier in Java makes a member accessible only within its own class?  
+Ans: private  
+
+Q61. What will the following code output:  
+class Test { static int x = 10; } public class Main { public static void main(String[] args) { Test t1 = new Test(); System.out.println(t1.x); } }  
+Ans: 10  
+
+Q62. Analyze the output of this code snippet:  
+class Car { String model; Car(String model) { this.model = model; } } public class Main { public static void main(String[] args) { Car myCar = new Car("Tesla"); System.out.println(myCar.model); } }  
+Ans: Tesla  
+
+Q63. What does this Java code do?  
+class Animal { void sound() { System.out.println("Generic Sound"); } } class Dog extends Animal { void sound() { System.out.println("Bark"); } } public class Main { public static void main(String[] args) { Animal myAnimal = new Dog(); myAnimal.sound(); } }  
+Ans: Prints "Bark"  
+
+Q64. What will this pseudocode output?  
+CLASS Vehicle SET wheels = 4 METHOD showWheels PRINT wheels END CLASS Main CREATE Vehicle v CALL v.showWheels  
+Ans: 4  
+
+Q65. Determine the output of this pseudocode:  
+CLASS Animal METHOD sound PRINT "Generic Sound" END CLASS Dog EXTENDS Animal METHOD sound PRINT "Bark" END CLASS Main CREATE Dog d CALL d.sound  
+Ans: Bark  
+
+Q66. What will be the result of this pseudocode?  
+CLASS Book VARIABLE title = "Java Programming" METHOD getTitle PRINT title END CLASS Main CREATE Book b CALL b.getTitle  
+Ans: Java Programming  
+
+Q67. Analyze this pseudocode:  
+CLASS Shape METHOD area RETURN 0 END CLASS Circle EXTENDS Shape VARIABLE radius = 5 METHOD area RETURN 3.14 * radius * radius END CLASS Main CREATE Circle c PRINT c.area  
+Ans: 78.5  
+
+Q68. Identify the issue in this code snippet:  
+class Book { private String title; void setTitle(String title) { title = title; } }  
+Ans: The method does not set the instance variable  
+
+Q69. Spot the mistake:  
+class Calculator { static void sum(int a, int b) { System.out.println(a + b); } public static void main(String[] args) { sum(10, 20); } }  
+Ans: No error  
+
+Q70. Find the error in this Java code:  
+class Animal { Animal() { System.out.println("An animal is created"); } } class Dog extends Animal { Dog() { super(); System.out.println("A dog is created"); } } public class Main { public static void main(String[] args) { Dog dog = new Dog(); } }  
+Ans: No error  
+
+Q71. What is an abstract class in Java?  
+Ans: A class that cannot be instantiated and has at least one abstract method  
+
+Q72. How does StringBuilder differ from StringBuffer in Java?  
+Ans: StringBuilder is faster as it is not synchronized  
+
+Q73. In Java, what is an interface?  
+Ans: A fully abstract class  
+
+Q74. Can an interface in Java contain default methods?  
+Ans: Yes, from Java 8 onwards  
+
+Q75. What happens when a class implements an interface in Java?  
+Ans: It must provide implementation for all methods in the interface  
+
+Q76. Can an interface in Java extend multiple interfaces?  
+Ans: Yes  
+
+Q77. What will this Java code output?  
+interface Printable { void print(); } class Test implements Printable { public void print() { System.out.println("Hello"); } } public class Main { public static void main(String[] args) { Test t = new Test(); t.print(); } }  
+Ans: Hello  
+
+Q78. Analyze the output of this code snippet:  
+interface A { int val = 5; } interface B extends A { int val = 10; } class Test implements B { void display() { System.out.println(val); } } public class Main { public static void main(String[] args) { Test t = new Test(); t.display(); } }  
+Ans: Error  
+
+Q79. What is the primary purpose of a package in Java?  
+Ans: To group related classes and interfaces  
+
+Q80. What does the 'import' statement do in a Java program?  
+Ans: It allows access to classes in packages  
+
+Q81. How do you access a class from a package in Java?  
+Ans: By importing the class  
+
+Q82. What is the significance of the CLASSPATH environment variable in Java?  
+Ans: It tells the JVM where to look for user-defined classes and packages  
+
+Q83. What is an exception in Java?  
+Ans: An error during program execution  
+
+Q84. What is the purpose of a try-catch block in Java?  
+Ans: To handle exceptions  
+
+Q85. What happens if an exception is thrown in a try block and is not caught in the corresponding catch block?  
+Ans: The exception is handled by the default handler  
+
+Q86. Which keyword is used to manually throw an exception in Java?  
+Ans: throw  
+
+Q87. What is the difference between checked and unchecked exceptions in Java?  
+Ans: Checked exceptions are detected at compile-time, unchecked at runtime  
+
+Q88. What will the following code output:  
+try { int a = 5 / 0; System.out.println(a); } catch (ArithmeticException e) { System.out.println("Arithmetic Error"); }  
+Ans: Arithmetic Error  
+
+Q89. Analyze the output of this code snippet:  
+try { int[] arr = new int[5]; arr[10] = 100; System.out.println("Value set"); } catch (ArrayIndexOutOfBoundsException e) { System.out.println("Index Error"); }  
+Ans: Index Error  
+
+Q90. What will this pseudocode output?  
+SET a = 10 SET b = 0 TRY SET c = a / b CATCH EXCEPTION PRINT "Error" END TRY  
+Ans: Error  
+
+Q91. Determine the output of this pseudocode:  
+TRY PRINT "Start" THROW NEW EXCEPTION "Failed" CATCH EXCEPTION PRINT "Caught" END TRY PRINT "End"  
+Ans: Start Caught End  
+
+Q92. What will be the result of this pseudocode?  
+SET arr = [1, 2, 3] TRY PRINT arr[3] CATCH EXCEPTION PRINT "Array Error" END TRY  
+Ans: Array Error  
+
+Q93. Identify the issue in this code snippet:  
+try { int x = 5 / 0; } catch (Exception e) { e.printStackTrace(); } finally { System.out.println("Done"); }  
+Ans: No error  
+
+Q94. Spot the mistake:  
+try { String s = null; System.out.println(s.length()); } catch (NullPointerException e) { System.out.println("Null Error"); }  
+Ans: No error  
+
+Q95. Find the error in this Java code:  
+try { File file = new File("test.txt"); FileReader fr = new FileReader(file); } catch (FileNotFoundException e) { System.out.println("File not found"); }  
+Ans: Missing import statements for File and FileReader  
+
+Q96. Identify the flaw in this Java code:  
+class CustomException extends Exception { } try { throw new CustomException(); } catch (CustomException e) { System.out.println("Custom exception caught"); }  
+Ans: Missing try block  
+
+Q97. What are generics in Java?  
+Ans: Templates for creating collections  
+
+Q98. What is the primary advantage of using generics in Java?  
+Ans: Stronger type checking at compile-time  
+
+Q99. Which collection type does not allow duplicate elements?  
+Ans: Set  
+
+Q100. What is the difference between a HashMap and a Hashtable in Java?  
+Ans: Hashtable is synchronized, HashMap is not  
+
+Q101. In Java Collections Framework, which interface represents a mapping from unique keys to values?  
+Ans: Map  
+
+Q102. What happens when a duplicate key is put into a HashMap?  
+Ans: It replaces the existing key’s value  
+
+Q103. What is the difference between the add() and put() methods in Java's Collection Framework?  
+Ans: add() is for lists, put() is for maps  
+
+Q104. Which of the following is true about a TreeMap in Java?  
+Ans: It orders elements based on natural ordering or a comparator  
+
+Q105. What does this Java code output?  
+Map<Integer, String> map = new HashMap<>(); map.put(1, "Java"); map.put(2, "Python"); System.out.println(map.size());  
+Ans: 2  
+
+Q106. Analyze the output of this code snippet:  
+List list = new ArrayList<>(); list.add("Java"); list.add("Java"); System.out.println(list.get(1));  
+Ans: Java  
+
+Q107. What will this Java code print?  
+Set set = new HashSet<>(); set.add(1); set.add(1); System.out.println(set.size());  
+Ans: 1  
+
+Q108. What is the result of executing this code?  
+Map<String, Integer> map = new TreeMap<>(); map.put("Python", 3); map.put("Java", 1); System.out.println(map);  
+Ans: {Java=1, Python=3}  
+
+Q109. Determine the output of this pseudocode:  
+CREATE list = ["Java", "Python", "Java"] FOR EACH element IN list PRINT element  
+Ans: Java Python Java  
+
+Q110. What will be the result of this pseudocode?  
+CREATE map SET map["Java"] = 1 SET map["Python"] = 2 SET map["Java"] = 3 PRINT map["Java"]  
+Ans: 3  
+
+Q111. Analyze this pseudocode:  
+CREATE set ADD "Java" TO set ADD "Python" TO set ADD "Java" TO set IF "Java" IN set PRINT "Yes" ELSE PRINT "No"  
+Ans: Yes  
+
+Q112. What will this pseudocode output?  
+CREATE map SET map[1] = "Java" SET map[2] = "Python" SET map[1] = "C++" PRINT map[1]  
+Ans: C++  
+
+Q113. Identify the issue in this code snippet:  
+List list = new ArrayList<>(); list.get(0);  
+Ans: The list is empty  
+
+Q114. Spot the mistake:  
+Set set = new TreeSet<>(); set.add(null);  
+Ans: TreeSet does not allow null  
+
+Q115. Find the error in this Java code:  
+Map<String, Integer> map = new HashMap<>(); map.put(null, 1); map.put(null, 2); System.out.println(map.get(null));  
+Ans: No error  
+
+Q116. Identify the flaw in this Java code:  
+List list = new LinkedList<>(); list.add("Java"); list.add(1, "Python"); list.remove(2);  
+Ans: The remove index is out of bounds  
+
+Q117. What is the String Constant Pool in Java?  
+Ans: A memory area for constant String storage  
+
+Q118. How does StringBuilder differ from StringBuffer in Java?  
+Ans: StringBuilder is faster as it is not synchronized  
+
+Q119. What is the result of concatenating strings using the '+' operator in Java?  
+Ans: A new String object is created every time  
+
+Q120. Why is it recommended to use StringBuilder or StringBuffer for string manipulation in loops?  
+Ans: Both B and C  
+
+Q121. In Java, what happens when two string literals with the same content are created?  
+Ans: They refer to the same object in the String Constant Pool  
+
+Q122. What will this Java code output?  
+String s1 = "Java"; String s2 = "Java"; System.out.println(s1 == s2);  
+Ans: true  
+
+Q123. What does this Java code do?  
+StringBuilder sb = new StringBuilder("Java"); sb.append(" Programming"); System.out.println(sb);  
+Ans: Appends " Programming" to sb and prints "Java Programming"  
+
+Q124. Analyze the output of this code snippet:  
+StringBuffer buffer = new StringBuffer("Java"); buffer.reverse(); System.out.println(buffer);  
+Ans: avaJ  
+
+Q125. What will this pseudocode output?  
+SET str = "Java" SET builder = StringBuilder(str) builder.append("Script") PRINT builder  
+Ans: JavaScript  
+
+Q126. Analyze this pseudocode:  
+CREATE buffer = StringBuffer("Java") CALL buffer.reverse() PRINT buffer  
+Ans: avaJ  
+
+Q127. What will be the result of this pseudocode?  
+SET str1 = "Java" SET str2 = "Java" IF str1 EQUALS str2 PRINT "Equal" ELSE PRINT "Not Equal"  
+Ans: Equal  
+
+Q128. Identify the issue in this code snippet:  
+StringBuilder sb = "Java"; sb.append("Script");  
+Ans: Incorrect initialization of StringBuilder  
+
+Q129. Spot the mistake:  
+StringBuffer buffer = new StringBuffer("Java"); buffer.setLength(2); System.out.println(buffer);  
+Ans: It will print "Ja"  
+
+Q130. Find the error in this Java code:  
+String s1 = new String("Java"); String s2 = new String("Java"); System.out.println(s1 == s2);  
+Ans: s1 and s2 refer to different objects  
+
+Q131. What is the main difference between a single-threaded and a multi-threaded application?  
+Ans: Multi-threaded applications can perform multiple tasks at the same time  
+
+Q132. In Java, what is the difference between a user thread and a daemon thread?  
+Ans: User threads prevent the JVM from exiting, daemon threads do not  
+
+Q133. What is the primary purpose of the wait() and notify() methods in Java?  
+Ans: To manage synchronization between threads  
+
+Q134. Analyze the output of this code snippet:  
+class MyThread extends Thread { public void run() { for(int i = 0; i < 5; i++) { System.out.println(i); } } } public class Main { public static void main(String[] args) { MyThread t = new MyThread(); t.start(); for(int i = 5; i < 10; i++) { System.out.println(i); } } }  
+Ans: A mix of numbers 0 to 9 in no particular order  
+
+Q135. What will this pseudocode output?  
+CREATE thread START thread PRINT "Thread started" END  
+Ans: Thread started  
+
+Q136. Analyze this pseudocode:  
+CREATE thread1, thread2 START thread1 CALL thread1.wait() START thread2 CALL thread2.notify()  
+Ans: An error occurs  
+
+Q137. Identify the issue in this code snippet:  
+class MyThread extends Thread { public void run() { wait(); } }  
+Ans: Incorrect use of wait()  
+
+Q138. Spot the mistake:  
+synchronized void myMethod() { notify(); wait(); }  
+Ans: No error  
+
+Q139. What is a lambda expression in Java?  
+Ans: A concise way to represent an anonymous function  
+
+Q140. What is the purpose of the Streams API in Java 8?  
+Ans: To enable functional-style operations on collections  
+
+Q141. What are functional interfaces in Java?  
+Ans: Interfaces with a single abstract method  
+
+Q142. How does the Optional class help in Java?  
+Ans: It is used to avoid NullPointerExceptions  
+
+Q143. What is the advantage of using method references in Java 8?  
+Ans: They make the code more readable when referring to methods or constructors  
+
+Q144. How does the Date and Time API in Java 8 improve over the older java.util.Date class?  
+Ans: All of the above  
+
+Q145. What is the purpose of the CompletableFuture class in Java?  
+Ans: To simplify multithreading programming  
+
+Q146. In Java, what are the benefits of using Callable and Future interfaces?  
+Ans: To perform operations in the background and retrieve their results  
+
+Q147. Analyze the output of this code snippet:  
+List numbers = Arrays.asList(1, 2, 3); numbers.stream().map(n -> n * n).forEach(System.out::println);  
+Ans: Prints the squares of the numbers  
+
+Q148. What will this pseudocode output?  
+CREATE list = [1, 2, 3, 4] CREATE stream = list.stream() FILTER stream WITH (n -> n > 2) PRINT stream  
+Ans: [3, 4]  
+
+Q149. What is the primary purpose of the Locale class in Java?  
+Ans: To represent a specific geographical, political, or cultural region  
+
+Q150. What is a key consideration when designing an application to support multiple languages?  
+Ans: Using external files for text to facilitate easy translation
+
+```
+
+
+
 $$
 \Large \text{End Of File}
 $$
-
-
-
-Q1. Which of these is not a feature of Java?
-
-Ans: Interpreted language
-
-Q2. Which component of Java is responsible for running the compiled Java bytecode?
-- Ans: JVM
-
-Q3. What is the purpose of the PATH environment variable in Java?
-
-`Ans`: To locate the Java compiler
-
-Q4. Which feature of Java makes it possible to run a Java program on different platforms?
-
-- Ans: Platform-Independent
-
-Q5. In Java, how should class names be written?
-Ans: PascalCase
-
-Q6. Which of these is a single-line comment in Java?
-`Ans`: //
-
-Q7. Which data type would be best for storing a person's age in Java?
-
-`Ans: int`
-
-```
-Q8. What is the default value of a boolean variable in Java?
-Ans: false
-
-Q9. What is the result of this operation in Java: (int)(7.9)?
-Ans: 7
-
-Q10. Which keyword is used to define a constant variable in Java?
-Ans: final
-```
