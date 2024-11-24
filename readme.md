@@ -516,7 +516,62 @@ A comprehensive overview of the functions provided by the `Collectors` class in 
     ```
     {2=id, 3=Bob, 4=Even, 5=Alice, 9=Charliesa}
     ```
+#### Further explanation related to HashMap and Collectors.toMap()
 
+The **`Collectors.toMap`** method in Java's Stream API does **not allow duplicate keys** by default. When two entries attempt to map to the same key, it throws an `IllegalStateException`. This is different from the behavior of `HashMap.put`, which silently replaces the existing value for a duplicate key.
+
+Here's the code that illustrates the problem:
+
+```java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.Function;
+
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eve");
+
+// This will throw IllegalStateException because "Alice" and "David" have the same length (5)
+Map<Integer, String> map = names.stream()
+                                        .collect(Collectors.toMap(String::length, Function.identity()));
+
+```
+
+### Explanation of the Error:
+1. **Key Conflict**: `"Alice"` and `"David"` both have the same length (5), so they map to the same key in the resulting map.
+2. **Default `toMap` Behavior**: By default, `toMap` doesn't allow conflicts and throws an exception when two keys collide.
+
+### Solution 1: Resolve Key Conflicts Using a Merge Function
+If you want to handle duplicates, you can provide a **merge function** to decide what to do when there’s a conflict:
+
+```java
+Map<Integer, String> map = names.stream()
+                                .collect(Collectors.toMap(
+                                    String::length, 
+                                    Function.identity(), 
+                                    (existing, replacement) -> existing // Keep the existing value
+                                ));
+
+System.out.println(map); // Output: {3=Bob, 5=Alice, 7=Charlie}
+```
+
+### Solution 2: Allow Multiple Values Per Key
+You can use a `Map<Integer, List<String>>` to group strings by their lengths:
+
+```java
+Map<Integer, List<String>> map = names.stream()
+                                      .collect(Collectors.groupingBy(String::length));
+
+System.out.println(map); // Output: {3=[Bob], 5=[Alice, David], 7=[Charlie]}
+```
+
+### Key Takeaway:
+- **`HashMap` behavior**: Replaces the value for duplicate keys silently.
+- **`Collectors.toMap` behavior**: Throws an exception unless you provide a merge function.
+
+
+
+
+
+<!-- =============================================================================================== -->
 
 ## 2. **Joining Collectors**
 
@@ -4645,6 +4700,7 @@ Q150. What is a key consideration when designing an application to support multi
 Ans: Using external files for text to facilitate easy translation
 
 ```
+
 
 
 
