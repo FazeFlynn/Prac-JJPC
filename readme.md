@@ -1895,6 +1895,59 @@ Given a string, find the length of the longest substring without repeating chara
 - Input: `"abcabcbb"`
 - Output: `3` (The answer is `"abc"`)
 
+```java
+public static int lengthOfLongestSubstring(String s) {
+
+    HashMap<Character, Integer> map = new HashMap<>();
+    int left = 0;
+    int maxLength = 0;
+
+    for (int right = 0; right < s.length(); right++) {
+        char currentChar = s.charAt(right);
+        if (map.containsKey(currentChar)) {
+            left = Math.max(left, map.get(currentChar) + 1);
+        }
+
+        map.put(currentChar, right);
+        maxLength = Math.max(maxLength, right - left + 1);
+    }
+    return maxLength;
+}
+
+String input = "abcabcbb";
+System.out.println("Length of longest substring: " + lengthOfLongestSubstring(input)); // Output: 3
+```
+
+`printing the substring also`
+
+```java
+public static int lengthOfLongestSubstring(String s) {
+
+    HashMap<Character, Integer> map = new HashMap<>();
+    int left = 0;
+    int maxLength = 0;
+    int l = 0;
+
+    for (int right = 0; right < s.length(); right++) {
+        char currentChar = s.charAt(right);
+        if (map.containsKey(currentChar)) {
+            left = Math.max(left, map.get(currentChar) + 1);
+        }
+        map.put(currentChar, right);
+
+        if(maxLength < right - left + 1){
+            l = left;
+            maxLength = right - left + 1;
+        }
+    }
+    System.out.println(s.substring(l, l + maxLength));
+    return maxLength;
+}
+
+String input = "auguviutgeio";
+System.out.println("Length of longest substring: " + lengthOfLongestSubstring(input)); // Output: 3
+```
+
 ### 3. **Spiral Matrix**
 Given a 2D array, return the elements of the array in a spiral order.
 
@@ -3334,6 +3387,8 @@ public class Main {
 
 #### Q.1: You are given a list of intervals where each interval is represented as [`start`, `end`]. Write a method that finds the maximum number of non-overlapping intervals that can be attended.
 
+
+
 ```java
 public static int maxNonOverlappingIntervals(int[][] intervals) {
     if (intervals == null || intervals.length == 0) {
@@ -3356,6 +3411,12 @@ maxNonOverlappingIntervals(interval); // 3
 ```
 
 #### Q.2: You are given an array of integers. For each element in the array, find the next greater element to the right. If no such element exists, output -1 for that elements.
+`Example`:
+
+```plaintext
+Input: [4,5,2,10,8]
+Ouput: [5, 10, 10, -1, -1]
+```
 
 `optimized approach using stacks - easy, just focus`
 
