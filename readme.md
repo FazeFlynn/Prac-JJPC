@@ -1600,6 +1600,66 @@ binary_string = bin(ascii_value)[2:]  # Remove the '0b' prefix
 print(binary_string)  # Output: 1000001
 ```
 
+# Binary to Integers
+
+**Java**, **JavaScript**, and **Python** for converting a binary string to a decimal integer:
+
+
+### Java
+```java
+public class BinaryToDecimal {
+    public static void main(String[] args) {
+        String binaryString = "1101";
+        int decimal = Integer.parseInt(binaryString, 2); // Convert binary string to decimal
+        System.out.println(decimal); // Output: 13
+    }
+}
+```
+
+`without using any predefined methods`
+
+```java
+String binaryString = "1101";
+int decimal = 0;
+
+for (int i = 0; i < binaryString.length(); i++) {
+    char bit = binaryString.charAt(binaryString.length() - 1 - i);    
+    if (bit == '1') {
+        decimal += Math.pow(2, i);
+    }
+}
+System.out.println("Decimal: " + decimal); // Output: 13 for "1101"
+```
+
+--
+
+### JavaScript
+```javascript
+const binaryString = "1101";
+const decimal = parseInt(binaryString, 2); // Convert binary string to decimal
+console.log(decimal); // Output: 13
+```
+
+--
+
+### Python
+```python
+binary_string = "1101"
+decimal = int(binary_string, 2)  # Convert binary string to decimal
+print(decimal)  # Output: 13
+```
+
+---
+
+
+
+
+
+
+
+<!-- ================================================================================ -->
+
+
 # `ASCII Values`
 
 #### `Java`
