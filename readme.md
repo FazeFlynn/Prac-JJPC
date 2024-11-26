@@ -2304,6 +2304,132 @@ Given a linked list, reverse the nodes of the list `k` at a time.
 
 ---
 
+# Pattern Questions
+
+### 1. Print the following pattern
+```plaintext
+* * * * * * * * * *
+*                 *
+*                 *
+*                 *
+*                 *
+*                 *
+*                 *
+*                 *
+*                 *
+* * * * * * * * * *
+```
+
+```java
+void printPattern(int n){
+
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            if(i > 0 && i < n-1 && j > 0 && j < n-1){
+                System.out.print("  ");
+            } else {
+                System.out.print("* ");
+            }            
+        }
+        System.out.println();        
+    }
+}
+
+int n = 10;
+printPattern(n);
+
+```
+
+
+### 2. Print the following pattern`
+
+```plaintext
+* * * * * * * * *
+*   * * * * *   *
+*     * * *     *
+*       *       *
+*     * * *     *
+*   * * * * *   *
+* * * * * * * * *
+```
+
+```java
+void printPattern1(int m, int n){
+
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            if(i > 0 && i < m-1 && j > 0 && j < n-1){
+                if(i <= (m/2) && (j < i || j > n-i-1)){
+                    System.out.print("  ");
+                } else if (i > m/2 && (j < m-i-1 || (j > n-(m-i)))) {
+                    System.out.print("  ");
+                                        
+                } else {
+                    System.out.print("* ");
+                }
+
+            } else {
+                System.out.print("* ");
+            }            
+        }
+        System.out.println();        
+    }
+}
+
+int m = 11;
+int n = 11;
+printPattern1(m,n);
+```
+
+- key points learned
+- to leave hollow space symmetrically, subtract the lenght-1 of the current iteration
+- 12321 to do that - go with subract the length of the iteration, works for both horizontal and vertical
+
+
+### 3. Similar Pattern
+
+```plaintext
+* * * * * * * * * * * 
+* *               * * 
+*   *           *   * 
+*     *       *     * 
+*       *   *       * 
+*         *         * 
+*       *   *       * 
+*     *       *     * 
+*   *           *   * 
+* *               * * 
+* * * * * * * * * * * 
+```
+
+```java
+void printPattern3(int m, int n){
+
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            if(i > 0 && i < m-1 && j > 0 && j < n-1){   
+                if (i == j || j == n-i-1){
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }           
+            } else {
+                System.out.print("* ");
+            }            
+        }
+        System.out.println();        
+    }
+}
+
+int m = 11;
+int n = 11;
+printPattern3(m,n);
+```
+
+
+
+---
+
 # Solved Questions For IntPrep
 
 ### Question 1: Write a code to reverse a number
