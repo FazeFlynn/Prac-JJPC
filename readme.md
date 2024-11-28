@@ -2034,6 +2034,46 @@ Write a program to generate all permutations of a given string.
 - Input: `"ABC"`
 - Output: `["ABC", "ACB", "BAC", "BCA", "CAB", "CBA"]`
 
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class HeapAlgorithm {
+    public static void main(String[] args) {
+        String input = "ABC";
+        List<String> result = new ArrayList<>();
+        char[] arr = input.toCharArray();
+        generateHeapPermutations(arr, arr.length, result);
+        System.out.println(result);
+    }
+
+    // Heap's Algorithm for permutations
+    private static void generateHeapPermutations(char[] arr, int size, List<String> result) {
+        if (size == 1) {
+            result.add(new String(arr));
+            return;
+        }
+
+        for (int i = 0; i < size; i++) {
+            generateHeapPermutations(arr, size - 1, result);
+
+            // Swap for next iteration
+            if (size % 2 == 1) { // If size is odd, swap first and last
+                char temp = arr[0];
+                arr[0] = arr[size - 1];
+                arr[size - 1] = temp;
+            } else { // If size is even, swap current element and last
+                char temp = arr[i];
+                arr[i] = arr[size - 1];
+                arr[size - 1] = temp;
+            }
+        }
+    }
+}
+```
+
+<!-- =========================================================================== -->
+
 ### 6. **Merge Intervals**
 Given a list of intervals, merge all overlapping intervals.
 
@@ -3668,6 +3708,177 @@ Arrays.toString(nextGreaterElement(arr));
 
 
 ---
+---
+
+
+# Some rare Methods
+
+Here’s a list of **rarely used functions** from our discussions, categorized by their respective classes or frameworks. These methods are often overshadowed by more commonly used ones but can be helpful in specific scenarios:
+
+
+### **1. HashMap (Java)**  
+- **`merge()`**  
+  Combines a value with an existing key using a remapping function.  
+  ```java
+  map.merge(key, value, (oldValue, newValue) -> oldValue + newValue);
+  ```
+
+- **`compute()`**  
+  Updates the value for a key using a computation function.  
+  ```java
+  map.compute(key, (k, v) -> (v == null) ? 1 : v + 1);
+  ```
+
+- **`computeIfAbsent()`**  
+  Computes a value for a key only if the key is absent.  
+  ```java
+  map.computeIfAbsent(key, k -> new ArrayList<>());
+  ```
+
+- **`computeIfPresent()`**  
+  Computes a value for a key only if the key is present.  
+  ```java
+  map.computeIfPresent(key, (k, v) -> v + 10);
+  ```
+
+---
+
+### **2. Arrays (Java)**  
+- **`Arrays.deepToString()`**  
+  Converts multidimensional arrays to a readable string.  
+  ```java
+  System.out.println(Arrays.deepToString(array));
+  ```
+
+- **`Arrays.parallelSort()`**  
+  Performs parallel sorting of an array, leveraging multiple threads.  
+  ```java
+  Arrays.parallelSort(array);
+  ```
+
+---
+
+### **3. String (Java)**  
+- **`String.intern()`**  
+  Returns the canonical representation of the string from the string pool.  
+  ```java
+  String s = new String("hello").intern();
+  ```
+
+- **`String.strip()`**  
+  Removes leading and trailing whitespaces (introduced in Java 11).  
+  ```java
+  String s = "  hello  ".strip();
+  ```
+
+- **`String.repeat(int count)`**  
+  Repeats the string `count` times (introduced in Java 11).  
+  ```java
+  String s = "hello".repeat(3); // Output: hellohellohello
+  ```
+
+---
+
+### **4. Collections Framework (Java)**  
+- **`Collections.disjoint()`**  
+  Checks if two collections have no elements in common.  
+  ```java
+  boolean result = Collections.disjoint(list1, list2);
+  ```
+
+- **`Collections.rotate()`**  
+  Rotates elements in a list by a specified distance.  
+  ```java
+  Collections.rotate(list, 2);
+  ```
+
+- **`Collections.swap()`**  
+  Swaps two elements in a list.  
+  ```java
+  Collections.swap(list, index1, index2);
+  ```
+
+- **`Collections.frequency()`**  
+  Returns the frequency of an element in a collection.  
+  ```java
+  int freq = Collections.frequency(list, element);
+  ```
+
+---
+
+### **5. Scanner (Java)**  
+- **`useDelimiter()`**  
+  Changes the delimiter used by the scanner.  
+  ```java
+  scanner.useDelimiter(","); // Use comma as a delimiter
+  ```
+
+---
+
+### **6. StringBuilder (Java)**  
+- **`insert(int offset, String str)`**  
+  Inserts a string at the specified position.  
+  ```java
+  sb.insert(2, "XYZ");
+  ```
+
+- **`replace(int start, int end, String str)`**  
+  Replaces characters in a range with the specified string.  
+  ```java
+  sb.replace(1, 3, "XYZ");
+  ```
+
+---
+
+### **7. Stream API (Java)**  
+- **`Collectors.toMap()`**  
+  Collects elements into a map with key-value mapping logic.  
+  ```java
+  Map<Integer, String> map = list.stream()
+                                 .collect(Collectors.toMap(String::length, Function.identity()));
+  ```
+
+- **`Stream.distinct()`**  
+  Removes duplicate elements in the stream.  
+  ```java
+  list.stream().distinct().forEach(System.out::println);
+  ```
+
+- **`Stream.generate()`**  
+  Creates an infinite stream based on a generator function.  
+  ```java
+  Stream<String> stream = Stream.generate(() -> "hello").limit(5);
+  ```
+
+---
+
+### **8. Character (Java)**  
+- **`Character.isLetterOrDigit()`**  
+  Checks if the character is a letter or digit.  
+  ```java
+  boolean isLetterOrDigit = Character.isLetterOrDigit(ch);
+  ```
+
+---
+
+### **9. Python Functions**  
+- **`int.from_bytes()`**  
+  Converts bytes to an integer.  
+  ```python
+  num = int.from_bytes(b'\x00\x10', 'big')
+  ```
+
+- **`str.translate()`**  
+  Translates a string using a mapping table.  
+  ```python
+  table = str.maketrans("abc", "123")
+  result = "abc".translate(table)  # Output: 123
+  ```
+
+---
+
+These methods are not commonly encountered in everyday programming but can greatly improve efficiency and readability when used in the right context. Let me know if you'd like examples for any specific method!
+
 
 
 
@@ -4948,8 +5159,194 @@ Ans: Using external files for text to facilitate easy translation
 
 ```
 
+# Other Solutions of Some problems
+
+## 1. All permutations of a string
 
 
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class StringPermutations {
+    public static void main(String[] args) {
+        String input = "ABC";
+        List<String> permutations = new ArrayList<>();
+        generatePermutations(input, 0, input.length() - 1, permutations);
+        System.out.println(permutations);
+    }
+
+    // Function to generate permutations
+    private static void generatePermutations(String str, int left, int right, List<String> result) {
+        if (left == right) {
+            result.add(str);
+            return;
+        }
+
+        for (int i = left; i <= right; i++) {
+            str = swap(str, left, i); // Swap characters
+            generatePermutations(str, left + 1, right, result); // Recursive call
+            str = swap(str, left, i); // Backtrack to original state
+        }
+    }
+
+    // Function to swap characters in a string
+    private static String swap(String str, int i, int j) {
+        char[] charArray = str.toCharArray();
+        char temp = charArray[i];
+        charArray[i] = charArray[j];
+        charArray[j] = temp;
+        return new String(charArray);
+    }
+}
+```
+
+
+The recursive approach used to generate permutations is intuitive and widely used, but it is not the most optimized for all scenarios due to its reliance on backtracking and the additional overhead of swapping characters. Here's an analysis of its efficiency and alternatives:
+
+
+### **Efficiency of the Recursive Approach**
+1. **Time Complexity**:  
+   - Generating permutations involves \(O(n!)\) operations because there are \(n!\) permutations of a string with \(n\) characters.  
+   - For each permutation, copying or constructing the string takes \(O(n)\). Therefore, the overall complexity is \(O(n \cdot n!)\).
+
+2. **Space Complexity**:  
+   - The recursion stack can go as deep as \(O(n)\), where \(n\) is the length of the string.
+
+3. **Drawbacks**:  
+   - While elegant and straightforward, the recursive approach has overhead due to:
+     - Character swapping.
+     - String reconstruction (in Java and Python).
+     - Excessive function calls, which may slow down execution for larger strings.
+
+
+
+### **Optimized Approach Using Iterative Permutation**
+Instead of recursion, iterative algorithms (e.g., **Heap's algorithm** for permutations) can be used. Heap's algorithm minimizes the number of swaps and avoids unnecessary recursion.
+
+
+
+### **Heap's Algorithm (Optimized for In-Place Permutations)**
+
+#### **Java Implementation**:
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class HeapAlgorithm {
+    public static void main(String[] args) {
+        String input = "ABC";
+        List<String> result = new ArrayList<>();
+        char[] arr = input.toCharArray();
+        generateHeapPermutations(arr, arr.length, result);
+        System.out.println(result);
+    }
+
+    // Heap's Algorithm for permutations
+    private static void generateHeapPermutations(char[] arr, int size, List<String> result) {
+        if (size == 1) {
+            result.add(new String(arr));
+            return;
+        }
+
+        for (int i = 0; i < size; i++) {
+            generateHeapPermutations(arr, size - 1, result);
+
+            // Swap for next iteration
+            if (size % 2 == 1) { // If size is odd, swap first and last
+                char temp = arr[0];
+                arr[0] = arr[size - 1];
+                arr[size - 1] = temp;
+            } else { // If size is even, swap current element and last
+                char temp = arr[i];
+                arr[i] = arr[size - 1];
+                arr[size - 1] = temp;
+            }
+        }
+    }
+}
+```
+
+
+#### **JavaScript Implementation**:
+```javascript
+function heapPermutation(arr, size, result) {
+    if (size === 1) {
+        result.push(arr.join(''));
+        return;
+    }
+
+    for (let i = 0; i < size; i++) {
+        heapPermutation(arr, size - 1, result);
+
+        // Swap for next iteration
+        if (size % 2 === 1) {
+            [arr[0], arr[size - 1]] = [arr[size - 1], arr[0]]; // Swap first and last
+        } else {
+            [arr[i], arr[size - 1]] = [arr[size - 1], arr[i]]; // Swap current and last
+        }
+    }
+}
+
+const input = "ABC";
+const result = [];
+heapPermutation(input.split(''), input.length, result);
+console.log(result);
+```
+
+
+#### **Python Implementation**:
+```python
+def heap_permutation(arr, size, result):
+    if size == 1:
+        result.append("".join(arr))
+        return
+
+    for i in range(size):
+        heap_permutation(arr, size - 1, result)
+
+        # Swap for next iteration
+        if size % 2 == 1:  # If size is odd, swap first and last
+            arr[0], arr[size - 1] = arr[size - 1], arr[0]
+        else:  # If size is even, swap current and last
+            arr[i], arr[size - 1] = arr[size - 1], arr[i]
+
+
+input_string = "ABC"
+result = []
+heap_permutation(list(input_string), len(input_string), result)
+print(result)
+```
+
+### **Why Heap's Algorithm is More Efficient**
+1. **Minimized Swaps**:  
+   Heap's algorithm avoids unnecessary swapping and generates permutations more directly, reducing overhead.
+
+2. **No String Reconstruction**:  
+   The character array is modified in-place without the need to create new strings repeatedly, improving efficiency.
+
+3. **Fewer Function Calls**:  
+   The iterative nature reduces recursion depth and avoids redundant operations.
+
+
+### **When to Use Which Approach**
+- **Recursive Approach**:  
+  Suitable for small inputs or when you need a straightforward implementation.
+
+- **Heap's Algorithm**:  
+  Preferred for larger inputs due to reduced overhead and better performance.
+
+
+
+
+
+
+
+
+
+
+
+---
 
 $$
 \Large \text{End Of File}
