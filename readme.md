@@ -3587,6 +3587,63 @@ public class Main {
 }
 ```
 
+`Construct spiral matrix (other version)`
+`3 X 3`
+```plaintext
+7 8 9 
+6 1 2 
+5 4 3
+```
+
+```java
+int row = 3;
+int column = 3;
+
+int[][] spiralArray = new int[row][column];
+
+int track = row*column;
+int left = 0;
+int right = spiralArray[0].length-1;
+int top = 0;
+int bottom = spiralArray.length-1;
+
+while(top <= bottom && left <= right){
+
+    for(int i = right; i >= left; i--) {
+        spiralArray[top][i] = track--;        
+    }
+    top++;
+
+    for(int i = top; i <= bottom; i++) {
+        spiralArray[i][left] = track--;         
+    }
+    left++;
+
+    for(int i = left; i <= right; i++) {
+        spiralArray[bottom][i] = track--;
+    }
+    bottom--;
+
+    for(int i = bottom; i >= top; i--) {
+        spiralArray[i][right] = track--;        
+    }
+    right--;
+}
+
+// print matrix
+void printMatrix(int[][] spiralArray){
+    for(int i = 0; i < spiralArray.length; i++) {
+        for(int j = 0; j < spiralArray[0].length; j++) {
+            System.out.print(spiralArray[i][j]);
+            System.out.print(" ");
+        }
+        System.out.println();    
+    }    
+}
+
+printMatrix(spiralArray);
+```
+
 ---
 
 ### Question 50: Write a Program to Find Fibonacci Series using Recursion
