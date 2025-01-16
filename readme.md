@@ -635,8 +635,44 @@ Enumeration<String> enumeration = Collections.enumeration(list);
 
 
 
+## `Binary to Integer`
+git 
+### **Python**
+```python
+# Convert binary string to integer
+binary_string = "1101"
+integer_value = int(binary_string, 2)
 
+print(f"Binary: {binary_string}, Integer: {integer_value}")
+```
 
+---
+
+### **JavaScript**
+```javascript
+// Convert binary string to integer
+let binaryString = "1101";
+let integerValue = parseInt(binaryString, 2);
+
+console.log(`Binary: ${binaryString}, Integer: ${integerValue}`);
+```
+
+---
+
+### **Java**
+```java
+public class BinaryToInteger {
+    public static void main(String[] args) {
+        // Convert binary string to integer
+        String binaryString = "1101";
+        int integerValue = Integer.parseInt(binaryString, 2);
+
+        System.out.println("Binary: " + binaryString + ", Integer: " + integerValue);
+    }
+}
+```
+
+---
 
 
 
