@@ -1,3 +1,662 @@
+# Type Conversions
+
+## `Python`
+
+## **1. Integer Conversions (`int`)**
+
+### **To Integer**
+- `int(x)`  
+  Converts `x` to an integer.
+  - From string: `int("42")` → `42`
+  - From float: `int(42.9)` → `42`
+  - From bool: `int(True)` → `1`
+
+### **From Integer**
+- To float: `float(x)` → `42.0`
+- To string: `str(x)` → `"42"`
+- To bool: `bool(x)` → `False` (if `x=0`) or `True` (otherwise)
+
+---
+
+## **2. Float Conversions (`float`)**
+
+### **To Float**
+- `float(x)`  
+  Converts `x` to a float.
+  - From string: `float("42.5")` → `42.5`
+  - From integer: `float(42)` → `42.0`
+  - From bool: `float(False)` → `0.0`
+
+### **From Float**
+- To integer: `int(x)` → Truncates decimal (`42.9` → `42`)
+- To string: `str(x)` → `"42.5"`
+- To bool: `bool(x)` → `False` (if `x=0.0`) or `True` (otherwise)
+
+---
+
+## **3. String Conversions (`str`)**
+
+### **To String**
+- `str(x)`  
+  Converts `x` to a string.
+  - From int: `str(42)` → `"42"`
+  - From float: `str(42.5)` → `"42.5"`
+  - From bool: `str(True)` → `"True"`
+  - From list: `str([1, 2, 3])` → `"[1, 2, 3]"`
+
+### **From String**
+- To int: `int("42")` → `42`  
+  (String must contain only digits.)
+- To float: `float("42.5")` → `42.5`  
+  (String must represent a valid float.)
+- To bool: `bool("")` → `False`; `bool("Hello")` → `True`
+
+---
+
+## **4. Boolean Conversions (`bool`)**
+
+### **To Boolean**
+- `bool(x)`  
+  Converts `x` to a boolean.
+  - `bool(0)` → `False`, `bool(1)` → `True`
+  - `bool("")` → `False`, `bool("Hi")` → `True`
+  - `bool([])` → `False`, `bool([1])` → `True`
+
+### **From Boolean**
+- To int: `int(True)` → `1`; `int(False)` → `0`
+- To float: `float(True)` → `1.0`; `float(False)` → `0.0`
+- To string: `str(True)` → `"True"`
+
+---
+
+## **5. List Conversions (`list`)**
+
+### **To List**
+- `list(x)`  
+  Converts an iterable `x` to a list.
+  - From string: `list("abc")` → `['a', 'b', 'c']`
+  - From tuple: `list((1, 2))` → `[1, 2]`
+  - From set: `list({1, 2})` → `[1, 2]`
+  - From dict: `list({'a': 1, 'b': 2})` → `['a', 'b']` (keys only)
+
+### **From List**
+- To string: `str([1, 2])` → `"[1, 2]"`
+- To tuple: `tuple([1, 2])` → `(1, 2)`
+- To set: `set([1, 2, 2])` → `{1, 2}`
+
+---
+
+## **6. Tuple Conversions (`tuple`)**
+
+### **To Tuple**
+- `tuple(x)`  
+  Converts an iterable `x` to a tuple.
+  - From string: `tuple("abc")` → `('a', 'b', 'c')`
+  - From list: `tuple([1, 2])` → `(1, 2)`
+  - From set: `tuple({1, 2})` → `(1, 2)`
+
+### **From Tuple**
+- To list: `list((1, 2))` → `[1, 2]`
+- To set: `set((1, 2, 2))` → `{1, 2}`
+
+---
+
+## **7. Set Conversions (`set`)**
+
+### **To Set**
+- `set(x)`  
+  Converts an iterable `x` to a set.
+  - From string: `set("abc")` → `{'a', 'b', 'c'}`
+  - From list: `set([1, 2, 2])` → `{1, 2}`
+  - From tuple: `set((1, 2, 2))` → `{1, 2}`
+
+### **From Set**
+- To list: `list({1, 2})` → `[1, 2]`
+- To tuple: `tuple({1, 2})` → `(1, 2)`
+
+---
+
+## **8. Dictionary Conversions (`dict`)**
+
+### **To Dictionary**
+- `dict(x)`  
+  Converts a sequence of key-value pairs to a dictionary.
+  - From list of tuples: `dict([('a', 1), ('b', 2)])` → `{'a': 1, 'b': 2}`
+  - From tuple of tuples: `dict((('a', 1), ('b', 2)))` → `{'a': 1, 'b': 2}`
+
+### **From Dictionary**
+- To list: `list({'a': 1, 'b': 2})` → `['a', 'b']` (keys only)
+- To tuple: `tuple({'a': 1, 'b': 2})` → `('a', 'b')`
+- To set: `set({'a': 1, 'b': 2})` → `{'a', 'b'}`
+
+---
+
+## **9. Byte Conversions (`bytes`)**
+
+### **To Bytes**
+- `bytes(x, encoding)`  
+  Converts a string `x` to bytes.
+  - From string: `bytes("abc", "utf-8")` → `b'abc'`
+  - From list: `bytes([65, 66, 67])` → `b'ABC'`
+
+### **From Bytes**
+- To string: `b'abc'.decode('utf-8')` → `"abc"`
+- To list: `list(b'ABC')` → `[65, 66, 67]`
+
+---
+---
+
+## `Javascript`
+
+## **1. Number Conversions**
+
+### **To Number**
+- **Using `Number()`**:
+  - From string: `Number("42")` → `42`
+  - From boolean: `Number(true)` → `1`, `Number(false)` → `0`
+  - From `null`: `Number(null)` → `0`
+  - From `undefined`: `Number(undefined)` → `NaN`
+  - From date: `Number(new Date("2025-01-01"))` → Unix timestamp
+- **Using `parseInt()` or `parseFloat()`**:
+  - `parseInt("42px")` → `42`
+  - `parseFloat("42.5px")` → `42.5`
+
+### **From Number**
+- To string: `String(42)` → `"42"` or `42.toString()` → `"42"`
+- To boolean: `Boolean(42)` → `true` (non-zero numbers are `true`, `0` is `false`)
+
+---
+
+## **2. String Conversions**
+
+### **To String**
+- **Using `String()`**:
+  - From number: `String(42)` → `"42"`
+  - From boolean: `String(true)` → `"true"`
+  - From `null`: `String(null)` → `"null"`
+  - From `undefined`: `String(undefined)` → `"undefined"`
+- **Using `.toString()`**:
+  - `(42).toString()` → `"42"`
+
+### **From String**
+- To number: `Number("42")` → `42` or `parseInt("42")` → `42`
+- To boolean: `Boolean("Hello")` → `true`; `Boolean("")` → `false`
+
+---
+
+## **3. Boolean Conversions**
+
+### **To Boolean**
+- **Using `Boolean()`**:
+  - From number: `Boolean(0)` → `false`, `Boolean(42)` → `true`
+  - From string: `Boolean("")` → `false`, `Boolean("Hello")` → `true`
+  - From `null` or `undefined`: `Boolean(null)` → `false`
+
+### **From Boolean**
+- To number: `Number(true)` → `1`, `Number(false)` → `0`
+- To string: `String(true)` → `"true"`
+
+---
+
+## **4. Object Conversions**
+
+### **To Object**
+- To Date: `new Date("2025-01-01")` → Date object
+- To JSON: `JSON.parse('{"key": "value"}')` → `{key: "value"}`
+
+### **From Object**
+- To string (JSON): `JSON.stringify({key: "value"})` → `'{"key": "value"}'`
+
+---
+
+## **5. Array Conversions**
+
+### **To Array**
+- Using `Array.from()`:
+  - From string: `Array.from("abc")` → `['a', 'b', 'c']`
+  - From set: `Array.from(new Set([1, 2, 3]))` → `[1, 2, 3]`
+- Using spread syntax:
+  - From string: `[..."abc"]` → `['a', 'b', 'c']`
+
+### **From Array**
+- To string: `["a", "b", "c"].join("")` → `"abc"`
+- To set: `new Set([1, 2, 2])` → `{1, 2}`
+
+---
+
+## **6. Date Conversions**
+
+### **To Date**
+- Using `new Date()`:
+  - From string: `new Date("2025-01-01")` → Date object
+  - From timestamp: `new Date(1672444800000)` → Date object
+
+### **From Date**
+- To number (timestamp): `Date.now()` → `1672444800000`
+- To string: `new Date().toISOString()` → `"2025-01-01T00:00:00.000Z"`
+
+---
+
+## **7. JSON Conversions**
+
+### **To JSON**
+- `JSON.stringify(obj)`  
+  Converts an object or array to a JSON string.
+
+### **From JSON**
+- `JSON.parse(json)`  
+  Converts a JSON string to an object or array.
+
+---
+
+## **8. Type Checking**
+JavaScript has a few ways to check types before conversion:
+- `typeof x` → Returns the type as a string (e.g., `"number"`, `"object"`, `"string"`, `"undefined"`).
+- `Array.isArray(x)` → Checks if `x` is an array.
+- `x instanceof Date` → Checks if `x` is a Date object.
+
+---
+---
+
+## `Java`
+
+
+Here's a comprehensive guide for **type casting** (explicit conversion) and **type coercion** (implicit conversion) in Java for converting between various data types:
+
+---
+
+## **1. Numeric Conversions**
+
+### **Implicit (Widening) Conversion**
+Automatically converts smaller types to larger types without loss of data:
+- `int` → `long` → `float` → `double`
+```java
+int a = 42;
+double b = a;  // No need for explicit casting
+```
+
+### **Explicit (Narrowing) Conversion**
+Manually converts larger types to smaller types using casting, with possible loss of data:
+```java
+double x = 42.5;
+int y = (int) x;  // Explicit casting
+```
+
+---
+
+## **2. String Conversions**
+
+### **To String**
+- Using `String.valueOf()`:
+```java
+int a = 42;
+String s = String.valueOf(a);
+```
+
+- Using concatenation:
+```java
+int a = 42;
+String s = a + "";  // Implicit conversion
+```
+
+### **From String**
+- To primitive types:
+  - `Integer.parseInt("42")` → Converts string to `int`.
+  - `Double.parseDouble("42.5")` → Converts string to `double`.
+  - `Boolean.parseBoolean("true")` → Converts string to `boolean`.
+
+- To wrapper classes:
+```java
+Integer i = Integer.valueOf("42");
+Double d = Double.valueOf("42.5");
+Boolean b = Boolean.valueOf("true");
+```
+
+---
+
+## **3. Boolean Conversions**
+
+### **To Boolean**
+- From string:
+```java
+boolean b = Boolean.parseBoolean("true");  // true
+```
+
+### **From Boolean**
+- To string:
+```java
+boolean b = true;
+String s = String.valueOf(b);  // "true"
+```
+
+---
+
+## **4. Character Conversions**
+
+### **To Character**
+- From `int`:
+```java
+char c = (char) 65;  // 'A'
+```
+
+### **From Character**
+- To `int`:
+```java
+char c = 'A';
+int i = (int) c;  // 65
+```
+
+- To string:
+```java
+char c = 'A';
+String s = Character.toString(c);  // "A"
+```
+
+---
+
+## **5. Wrapper Classes**
+
+### **Primitive to Wrapper**
+- Using `valueOf()`:
+```java
+int a = 42;
+Integer obj = Integer.valueOf(a);
+```
+
+### **Wrapper to Primitive**
+- Using `xxxValue()`:
+```java
+Integer obj = 42;
+int a = obj.intValue();
+```
+
+---
+
+## **6. Array Conversions**
+
+### **From Array to String**
+- Using `Arrays.toString()`:
+```java
+int[] arr = {1, 2, 3};
+String s = Arrays.toString(arr);  // "[1, 2, 3]"
+```
+
+### **From String to Array**
+- Splitting a string:
+```java
+String s = "1,2,3";
+String[] parts = s.split(",");
+```
+
+---
+
+## **7. Date Conversions**
+
+### **To String**
+- Using `Date.toString()`:
+```java
+Date date = new Date();
+String s = date.toString();
+```
+
+### **From String**
+- Using `SimpleDateFormat`:
+```java
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+Date date = sdf.parse("2025-01-10");
+```
+
+---
+
+## **8. Object Conversions**
+
+### **From Object to String**
+- Using `.toString()`:
+```java
+Object obj = 42;
+String s = obj.toString();
+```
+
+### **From String to Object**
+- Cast explicitly (if the type is known):
+```java
+Object obj = "Hello";
+String s = (String) obj;
+```
+
+---
+
+## **9. Type Checking**
+Java provides several ways to check types:
+- Using `instanceof`:
+```java
+if (obj instanceof Integer) {
+    System.out.println("Object is an Integer");
+}
+```
+
+- Using `getClass()`:
+```java
+if (obj.getClass() == String.class) {
+    System.out.println("Object is a String");
+}
+```
+
+---
+
+## `Collection Frameworks`
+
+Here’s a detailed explanation of **type conversions** within the **Java Collection Framework**. These involve converting between various collection types (e.g., `List`, `Set`, `Map`, etc.) using provided methods and utility classes.
+
+---
+
+### **1. List Conversions**
+
+#### **To Array**
+- Using `toArray()`:
+```java
+List<String> list = new ArrayList<>();
+list.add("Apple");
+list.add("Banana");
+String[] array = list.toArray(new String[0]);
+```
+
+#### **From Array**
+- Using `Arrays.asList()`:
+```java
+String[] array = {"Apple", "Banana"};
+List<String> list = Arrays.asList(array);
+```
+
+- Using `ArrayList` constructor:
+```java
+String[] array = {"Apple", "Banana"};
+List<String> list = new ArrayList<>(Arrays.asList(array));
+```
+
+---
+
+### **2. Set Conversions**
+
+#### **To List**
+- Using `ArrayList` constructor:
+```java
+Set<String> set = new HashSet<>();
+set.add("Apple");
+set.add("Banana");
+List<String> list = new ArrayList<>(set);
+```
+
+#### **From List**
+- Using `HashSet` constructor:
+```java
+List<String> list = new ArrayList<>();
+list.add("Apple");
+list.add("Banana");
+Set<String> set = new HashSet<>(list);
+```
+
+---
+
+### **3. Map Conversions**
+
+#### **To List**
+- **Keys to List**:
+```java
+Map<Integer, String> map = new HashMap<>();
+map.put(1, "Apple");
+map.put(2, "Banana");
+List<Integer> keys = new ArrayList<>(map.keySet());
+```
+
+- **Values to List**:
+```java
+List<String> values = new ArrayList<>(map.values());
+```
+
+- **Entries to List**:
+```java
+List<Map.Entry<Integer, String>> entries = new ArrayList<>(map.entrySet());
+```
+
+#### **From List**
+- Using `for` loop or `streams`:
+```java
+List<String> list = Arrays.asList("Apple", "Banana");
+Map<Integer, String> map = new HashMap<>();
+for (int i = 0; i < list.size(); i++) {
+    map.put(i, list.get(i));
+}
+```
+
+---
+
+### **4. Queue Conversions**
+
+#### **To List**
+- Using `ArrayList` constructor:
+```java
+Queue<String> queue = new LinkedList<>();
+queue.add("Apple");
+queue.add("Banana");
+List<String> list = new ArrayList<>(queue);
+```
+
+#### **From List**
+- Using `LinkedList` constructor:
+```java
+List<String> list = Arrays.asList("Apple", "Banana");
+Queue<String> queue = new LinkedList<>(list);
+```
+
+---
+
+### **5. Array to Collection**
+
+#### **To Set**
+- Using `HashSet` constructor:
+```java
+String[] array = {"Apple", "Banana", "Apple"};
+Set<String> set = new HashSet<>(Arrays.asList(array));
+```
+
+#### **To List**
+- Using `Arrays.asList()`:
+```java
+String[] array = {"Apple", "Banana"};
+List<String> list = Arrays.asList(array);
+```
+
+---
+
+### **6. Collections to Streams (Java 8)**
+
+#### **List/Set to Stream**
+- Using `.stream()`:
+```java
+List<String> list = Arrays.asList("Apple", "Banana");
+Stream<String> stream = list.stream();
+```
+
+#### **Stream to List/Set**
+- Using `.collect()`:
+```java
+List<String> list = stream.collect(Collectors.toList());
+Set<String> set = stream.collect(Collectors.toSet());
+```
+
+#### **Map to Stream**
+- **Entries**:
+```java
+Map<Integer, String> map = new HashMap<>();
+Stream<Map.Entry<Integer, String>> stream = map.entrySet().stream();
+```
+
+- **Keys or Values**:
+```java
+Stream<Integer> keyStream = map.keySet().stream();
+Stream<String> valueStream = map.values().stream();
+```
+
+---
+
+### **7. Other Conversions**
+
+#### **Unmodifiable Collections**
+- Using `Collections.unmodifiableXXX()`:
+```java
+List<String> list = Arrays.asList("Apple", "Banana");
+List<String> unmodifiableList = Collections.unmodifiableList(list);
+```
+
+#### **Synchronized Collections**
+- Using `Collections.synchronizedXXX()`:
+```java
+List<String> list = new ArrayList<>();
+List<String> synchronizedList = Collections.synchronizedList(list);
+```
+
+#### **Enumeration to List**
+- Using `Collections.list()`:
+```java
+Enumeration<String> enumeration = Collections.enumeration(Arrays.asList("Apple", "Banana"));
+List<String> list = Collections.list(enumeration);
+```
+
+#### **List to Enumeration**
+- Using `Collections.enumeration()`:
+```java
+List<String> list = Arrays.asList("Apple", "Banana");
+Enumeration<String> enumeration = Collections.enumeration(list);
+```
+
+---
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+---
+
+
+
+
+
 
 # Splitting a String with Space (" ") Delimiter and Storing It into an Array
 
